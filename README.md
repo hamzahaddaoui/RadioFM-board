@@ -2,7 +2,7 @@
 
 ## Abstract
 
-In this project I developed a microcontroller base system that transmits a digital signal to an amplifier, attached to a speaker.
+In this project I developed a microcontroller based system that transmits a digital audio signal to an amplifier, attached to a speaker.
 The audio signal can be received from different sources such as an FM radio module, which picks up various frequencies, or from a 3.5mm jack. Further development may include a bluetooth support.
 
 ![enter image description here](https://github.com/hamzahaddaoui/RadioFM-board/blob/main/Documentation/finalCircuit.png)
