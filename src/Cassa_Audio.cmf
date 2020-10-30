@@ -1,0 +1,596 @@
+%CMF
+# %PSECTS Section
+# For each object file, details of its psects are enumerated here.
+# The begining of the section is indicated by %PSECTS.  The first
+# line indicates the name of the first object file, e.g.
+#    $foo.obj
+# Each line that follows describes a psect in that object file, until
+# the next object file.  The lines that describe a psect have the
+# format:
+#    <psect name> <class name> <space> <link address> <load addresses> <length> <delta>
+# All addresses and the length are given in unqualified hexadecimal
+# in delta units.  Any other numeric values are decimal.
+%PSECTS
+$Cassa_Audio.obj
+cinit CODE 0 78E2 78E2 16 1
+text0 CODE 0 78D0 78D0 12 1
+text1 CODE 0 79EC 79EC 6C 1
+text2 CODE 0 7912 7912 1C 1
+text3 CODE 0 7BC2 7BC2 9A 1
+text4 CODE 0 7C5C 7C5C A4 1
+text5 CODE 0 79A0 79A0 4C 1
+text6 CODE 0 7ACE 7ACE 76 1
+text7 CODE 0 78F8 78F8 1A 1
+text8 CODE 0 7B44 7B44 7E 1
+text9 CODE 0 7956 7956 4A 1
+text10 CODE 0 792E 792E 28 1
+text11 CODE 0 78C0 78C0 10 1
+text12 CODE 0 7A58 7A58 76 1
+cstackCOMRAM COMRAM 1 1 1 14 1
+bitbssCOMRAM COMRAM 1 D0 1A 2 1
+bssCOMRAM COMRAM 1 15 15 5 1
+$C:\Users\Hamza\AppData\Local\Temp\s2r4.obj
+reset_vec CODE 0 0 0 2 1
+end_init CODE 0 2 2 4 1
+config CONFIG 0 300000 300000 8 1
+# %UNUSED Section
+# This section enumerates the unused ranges of each CLASS. Each entry
+# is described on a single line as follows:
+#    <class name> <range> <delta>
+# Addresses given in the range are in hexadecimal and units of delta.
+%UNUSED
+RAM 60-5EE 1
+SFR D00-F9B 1
+SFR F9D-FD3 1
+SFR FD5-FDA 1
+SFR FE0-FE2 1
+SFR FE8-FEA 1
+SFR FF0-FFB 1
+BANK0 60-FF 1
+BANK1 100-1FF 1
+BANK2 200-2FF 1
+BANK3 300-3FF 1
+BANK4 400-4FF 1
+BANK5 500-5EE 1
+CONST 6-78BF 1
+IDLOC 200000-200007 1
+STACK 60-5EE 1
+SMALLCONST 600-78BF 1
+CODE 6-78BF 1
+BIGRAM 1B-5EE 1
+COMRAM 1B-5F 1
+CONFIG 300008-30000D 1
+EEDATA F00000-F000FF 1
+MEDIUMCONST 600-78BF 1
+# %LINETAB Section
+# This section enumerates the file/line to address mappings.
+# The beginning of the section is indicated by %LINETAB.
+# The first line indicates the name of the first object file, e.g.
+#   $foo.obj
+# Each line that follows describes a single mapping until the next
+# object file.  Mappings have the following format:
+#    <address> <psect name> <class name> ><line number>:<file name>
+# The address is absolute and given given in unqualified hex 
+# in delta units of the psect. All mappings within an object file
+# are in ascending order of addresses.
+# All other numeric values are in decimal.
+%LINETAB
+$Cassa_Audio.obj
+7A58 text12 CODE >106:C:\Users\Hamza\Desktop\TPS Project\Cassa_Audio\progetto.c
+7A58 text12 CODE >108:C:\Users\Hamza\Desktop\TPS Project\Cassa_Audio\progetto.c
+7A60 text12 CODE >109:C:\Users\Hamza\Desktop\TPS Project\Cassa_Audio\progetto.c
+7A6E text12 CODE >110:C:\Users\Hamza\Desktop\TPS Project\Cassa_Audio\progetto.c
+7A74 text12 CODE >111:C:\Users\Hamza\Desktop\TPS Project\Cassa_Audio\progetto.c
+7A78 text12 CODE >113:C:\Users\Hamza\Desktop\TPS Project\Cassa_Audio\progetto.c
+7A7C text12 CODE >114:C:\Users\Hamza\Desktop\TPS Project\Cassa_Audio\progetto.c
+7A92 text12 CODE >115:C:\Users\Hamza\Desktop\TPS Project\Cassa_Audio\progetto.c
+7A96 text12 CODE >116:C:\Users\Hamza\Desktop\TPS Project\Cassa_Audio\progetto.c
+7A9A text12 CODE >119:C:\Users\Hamza\Desktop\TPS Project\Cassa_Audio\progetto.c
+7A9E text12 CODE >122:C:\Users\Hamza\Desktop\TPS Project\Cassa_Audio\progetto.c
+7AA2 text12 CODE >123:C:\Users\Hamza\Desktop\TPS Project\Cassa_Audio\progetto.c
+7AB8 text12 CODE >125:C:\Users\Hamza\Desktop\TPS Project\Cassa_Audio\progetto.c
+7ABA text12 CODE >124:C:\Users\Hamza\Desktop\TPS Project\Cassa_Audio\progetto.c
+7ABC text12 CODE >128:C:\Users\Hamza\Desktop\TPS Project\Cassa_Audio\progetto.c
+7AC2 text12 CODE >131:C:\Users\Hamza\Desktop\TPS Project\Cassa_Audio\progetto.c
+7AC2 text12 CODE >132:C:\Users\Hamza\Desktop\TPS Project\Cassa_Audio\progetto.c
+7AC4 text12 CODE >138:C:\Users\Hamza\Desktop\TPS Project\Cassa_Audio\progetto.c
+7AC6 text12 CODE >139:C:\Users\Hamza\Desktop\TPS Project\Cassa_Audio\progetto.c
+78C0 text11 CODE >65:C:\Users\Hamza\Desktop\TPS Project\Cassa_Audio\i2c.c
+78C0 text11 CODE >67:C:\Users\Hamza\Desktop\TPS Project\Cassa_Audio\i2c.c
+78CC text11 CODE >69:C:\Users\Hamza\Desktop\TPS Project\Cassa_Audio\i2c.c
+78CE text11 CODE >67:C:\Users\Hamza\Desktop\TPS Project\Cassa_Audio\i2c.c
+792E text10 CODE >158:C:\Users\Hamza\Desktop\TPS Project\Cassa_Audio\i2c.c
+7930 text10 CODE >160:C:\Users\Hamza\Desktop\TPS Project\Cassa_Audio\i2c.c
+7934 text10 CODE >161:C:\Users\Hamza\Desktop\TPS Project\Cassa_Audio\i2c.c
+7938 text10 CODE >165:C:\Users\Hamza\Desktop\TPS Project\Cassa_Audio\i2c.c
+794A text10 CODE >167:C:\Users\Hamza\Desktop\TPS Project\Cassa_Audio\i2c.c
+794E text10 CODE >168:C:\Users\Hamza\Desktop\TPS Project\Cassa_Audio\i2c.c
+7952 text10 CODE >169:C:\Users\Hamza\Desktop\TPS Project\Cassa_Audio\i2c.c
+7954 text10 CODE >175:C:\Users\Hamza\Desktop\TPS Project\Cassa_Audio\i2c.c
+7956 text9 CODE >87:C:\Users\Hamza\Desktop\TPS Project\Cassa_Audio\TEA5767.c
+7956 text9 CODE >88:C:\Users\Hamza\Desktop\TPS Project\Cassa_Audio\TEA5767.c
+795A text9 CODE >89:C:\Users\Hamza\Desktop\TPS Project\Cassa_Audio\TEA5767.c
+7960 text9 CODE >90:C:\Users\Hamza\Desktop\TPS Project\Cassa_Audio\TEA5767.c
+7966 text9 CODE >91:C:\Users\Hamza\Desktop\TPS Project\Cassa_Audio\TEA5767.c
+796A text9 CODE >92:C:\Users\Hamza\Desktop\TPS Project\Cassa_Audio\TEA5767.c
+7970 text9 CODE >93:C:\Users\Hamza\Desktop\TPS Project\Cassa_Audio\TEA5767.c
+7974 text9 CODE >94:C:\Users\Hamza\Desktop\TPS Project\Cassa_Audio\TEA5767.c
+797A text9 CODE >95:C:\Users\Hamza\Desktop\TPS Project\Cassa_Audio\TEA5767.c
+797E text9 CODE >96:C:\Users\Hamza\Desktop\TPS Project\Cassa_Audio\TEA5767.c
+7984 text9 CODE >97:C:\Users\Hamza\Desktop\TPS Project\Cassa_Audio\TEA5767.c
+7988 text9 CODE >98:C:\Users\Hamza\Desktop\TPS Project\Cassa_Audio\TEA5767.c
+798E text9 CODE >99:C:\Users\Hamza\Desktop\TPS Project\Cassa_Audio\TEA5767.c
+7992 text9 CODE >100:C:\Users\Hamza\Desktop\TPS Project\Cassa_Audio\TEA5767.c
+7998 text9 CODE >101:C:\Users\Hamza\Desktop\TPS Project\Cassa_Audio\TEA5767.c
+799C text9 CODE >102:C:\Users\Hamza\Desktop\TPS Project\Cassa_Audio\TEA5767.c
+799E text9 CODE >101:C:\Users\Hamza\Desktop\TPS Project\Cassa_Audio\TEA5767.c
+7B44 text8 CODE >33:C:\Users\Hamza\Desktop\TPS Project\Cassa_Audio\TEA5767.c
+7B46 text8 CODE >34:C:\Users\Hamza\Desktop\TPS Project\Cassa_Audio\TEA5767.c
+7B48 text8 CODE >36:C:\Users\Hamza\Desktop\TPS Project\Cassa_Audio\TEA5767.c
+7B50 text8 CODE >39:C:\Users\Hamza\Desktop\TPS Project\Cassa_Audio\TEA5767.c
+7B56 text8 CODE >42:C:\Users\Hamza\Desktop\TPS Project\Cassa_Audio\TEA5767.c
+7B5C text8 CODE >45:C:\Users\Hamza\Desktop\TPS Project\Cassa_Audio\TEA5767.c
+7B66 text8 CODE >48:C:\Users\Hamza\Desktop\TPS Project\Cassa_Audio\TEA5767.c
+7B6E text8 CODE >51:C:\Users\Hamza\Desktop\TPS Project\Cassa_Audio\TEA5767.c
+7B78 text8 CODE >54:C:\Users\Hamza\Desktop\TPS Project\Cassa_Audio\TEA5767.c
+7B80 text8 CODE >55:C:\Users\Hamza\Desktop\TPS Project\Cassa_Audio\TEA5767.c
+7B84 text8 CODE >57:C:\Users\Hamza\Desktop\TPS Project\Cassa_Audio\TEA5767.c
+7B90 text8 CODE >58:C:\Users\Hamza\Desktop\TPS Project\Cassa_Audio\TEA5767.c
+7B94 text8 CODE >34:C:\Users\Hamza\Desktop\TPS Project\Cassa_Audio\TEA5767.c
+7BB6 text8 CODE >62:C:\Users\Hamza\Desktop\TPS Project\Cassa_Audio\TEA5767.c
+78F8 text7 CODE >142:C:\Users\Hamza\Desktop\TPS Project\Cassa_Audio\i2c.c
+78F8 text7 CODE >144:C:\Users\Hamza\Desktop\TPS Project\Cassa_Audio\i2c.c
+7908 text7 CODE >145:C:\Users\Hamza\Desktop\TPS Project\Cassa_Audio\i2c.c
+790A text7 CODE >146:C:\Users\Hamza\Desktop\TPS Project\Cassa_Audio\i2c.c
+790E text7 CODE >147:C:\Users\Hamza\Desktop\TPS Project\Cassa_Audio\i2c.c
+7910 text7 CODE >148:C:\Users\Hamza\Desktop\TPS Project\Cassa_Audio\i2c.c
+7ACE text6 CODE >103:C:\Users\Hamza\Desktop\TPS Project\Cassa_Audio\TEA5767.c
+7ACE text6 CODE >106:C:\Users\Hamza\Desktop\TPS Project\Cassa_Audio\TEA5767.c
+7AD0 text6 CODE >107:C:\Users\Hamza\Desktop\TPS Project\Cassa_Audio\TEA5767.c
+7AD4 text6 CODE >108:C:\Users\Hamza\Desktop\TPS Project\Cassa_Audio\TEA5767.c
+7ADA text6 CODE >109:C:\Users\Hamza\Desktop\TPS Project\Cassa_Audio\TEA5767.c
+7AE0 text6 CODE >110:C:\Users\Hamza\Desktop\TPS Project\Cassa_Audio\TEA5767.c
+7AE6 text6 CODE >111:C:\Users\Hamza\Desktop\TPS Project\Cassa_Audio\TEA5767.c
+7AEE text6 CODE >112:C:\Users\Hamza\Desktop\TPS Project\Cassa_Audio\TEA5767.c
+7AF4 text6 CODE >113:C:\Users\Hamza\Desktop\TPS Project\Cassa_Audio\TEA5767.c
+7AFC text6 CODE >114:C:\Users\Hamza\Desktop\TPS Project\Cassa_Audio\TEA5767.c
+7B00 text6 CODE >115:C:\Users\Hamza\Desktop\TPS Project\Cassa_Audio\TEA5767.c
+7B08 text6 CODE >116:C:\Users\Hamza\Desktop\TPS Project\Cassa_Audio\TEA5767.c
+7B0C text6 CODE >117:C:\Users\Hamza\Desktop\TPS Project\Cassa_Audio\TEA5767.c
+7B14 text6 CODE >118:C:\Users\Hamza\Desktop\TPS Project\Cassa_Audio\TEA5767.c
+7B18 text6 CODE >119:C:\Users\Hamza\Desktop\TPS Project\Cassa_Audio\TEA5767.c
+7B20 text6 CODE >120:C:\Users\Hamza\Desktop\TPS Project\Cassa_Audio\TEA5767.c
+7B26 text6 CODE >121:C:\Users\Hamza\Desktop\TPS Project\Cassa_Audio\TEA5767.c
+7B2E text6 CODE >122:C:\Users\Hamza\Desktop\TPS Project\Cassa_Audio\TEA5767.c
+7B32 text6 CODE >123:C:\Users\Hamza\Desktop\TPS Project\Cassa_Audio\TEA5767.c
+7B42 text6 CODE >124:C:\Users\Hamza\Desktop\TPS Project\Cassa_Audio\TEA5767.c
+79A0 text5 CODE >15:C:\Program Files (x86)\Microchip\xc8\v1.36\sources\common\Umul32.c
+79A0 text5 CODE >119:C:\Program Files (x86)\Microchip\xc8\v1.36\sources\common\Umul32.c
+79A8 text5 CODE >120:C:\Program Files (x86)\Microchip\xc8\v1.36\sources\common\Umul32.c
+79A8 text5 CODE >121:C:\Program Files (x86)\Microchip\xc8\v1.36\sources\common\Umul32.c
+79AC text5 CODE >122:C:\Program Files (x86)\Microchip\xc8\v1.36\sources\common\Umul32.c
+79BC text5 CODE >123:C:\Program Files (x86)\Microchip\xc8\v1.36\sources\common\Umul32.c
+79C6 text5 CODE >124:C:\Program Files (x86)\Microchip\xc8\v1.36\sources\common\Umul32.c
+79D0 text5 CODE >125:C:\Program Files (x86)\Microchip\xc8\v1.36\sources\common\Umul32.c
+79DA text5 CODE >128:C:\Program Files (x86)\Microchip\xc8\v1.36\sources\common\Umul32.c
+79EA text5 CODE >129:C:\Program Files (x86)\Microchip\xc8\v1.36\sources\common\Umul32.c
+7C5C text4 CODE >64:C:\Users\Hamza\Desktop\TPS Project\Cassa_Audio\TEA5767.c
+7C5C text4 CODE >66:C:\Users\Hamza\Desktop\TPS Project\Cassa_Audio\TEA5767.c
+7C62 text4 CODE >67:C:\Users\Hamza\Desktop\TPS Project\Cassa_Audio\TEA5767.c
+7C64 text4 CODE >68:C:\Users\Hamza\Desktop\TPS Project\Cassa_Audio\TEA5767.c
+7C68 text4 CODE >69:C:\Users\Hamza\Desktop\TPS Project\Cassa_Audio\TEA5767.c
+7C6C text4 CODE >70:C:\Users\Hamza\Desktop\TPS Project\Cassa_Audio\TEA5767.c
+7C72 text4 CODE >71:C:\Users\Hamza\Desktop\TPS Project\Cassa_Audio\TEA5767.c
+7C76 text4 CODE >75:C:\Users\Hamza\Desktop\TPS Project\Cassa_Audio\TEA5767.c
+7C88 text4 CODE >76:C:\Users\Hamza\Desktop\TPS Project\Cassa_Audio\TEA5767.c
+7CB8 text4 CODE >77:C:\Users\Hamza\Desktop\TPS Project\Cassa_Audio\TEA5767.c
+7CC8 text4 CODE >78:C:\Users\Hamza\Desktop\TPS Project\Cassa_Audio\TEA5767.c
+7CD8 text4 CODE >79:C:\Users\Hamza\Desktop\TPS Project\Cassa_Audio\TEA5767.c
+7CEA text4 CODE >80:C:\Users\Hamza\Desktop\TPS Project\Cassa_Audio\TEA5767.c
+7CF2 text4 CODE >81:C:\Users\Hamza\Desktop\TPS Project\Cassa_Audio\TEA5767.c
+7CF4 text4 CODE >82:C:\Users\Hamza\Desktop\TPS Project\Cassa_Audio\TEA5767.c
+7CF8 text4 CODE >83:C:\Users\Hamza\Desktop\TPS Project\Cassa_Audio\TEA5767.c
+7CFC text4 CODE >85:C:\Users\Hamza\Desktop\TPS Project\Cassa_Audio\TEA5767.c
+7BC2 text3 CODE >65:C:\Users\Hamza\Desktop\TPS Project\Cassa_Audio\progetto.c
+7BC2 text3 CODE >66:C:\Users\Hamza\Desktop\TPS Project\Cassa_Audio\progetto.c
+7BC4 text3 CODE >67:C:\Users\Hamza\Desktop\TPS Project\Cassa_Audio\progetto.c
+7BC4 text3 CODE >68:C:\Users\Hamza\Desktop\TPS Project\Cassa_Audio\progetto.c
+7BC6 text3 CODE >69:C:\Users\Hamza\Desktop\TPS Project\Cassa_Audio\progetto.c
+7BD4 text3 CODE >70:C:\Users\Hamza\Desktop\TPS Project\Cassa_Audio\progetto.c
+7BD6 text3 CODE >71:C:\Users\Hamza\Desktop\TPS Project\Cassa_Audio\progetto.c
+7BD6 text3 CODE >72:C:\Users\Hamza\Desktop\TPS Project\Cassa_Audio\progetto.c
+7BD8 text3 CODE >73:C:\Users\Hamza\Desktop\TPS Project\Cassa_Audio\progetto.c
+7BDA text3 CODE >74:C:\Users\Hamza\Desktop\TPS Project\Cassa_Audio\progetto.c
+7BDA text3 CODE >75:C:\Users\Hamza\Desktop\TPS Project\Cassa_Audio\progetto.c
+7BDE text3 CODE >76:C:\Users\Hamza\Desktop\TPS Project\Cassa_Audio\progetto.c
+7BE6 text3 CODE >77:C:\Users\Hamza\Desktop\TPS Project\Cassa_Audio\progetto.c
+7BE8 text3 CODE >79:C:\Users\Hamza\Desktop\TPS Project\Cassa_Audio\progetto.c
+7BF6 text3 CODE >84:C:\Users\Hamza\Desktop\TPS Project\Cassa_Audio\progetto.c
+7BF6 text3 CODE >85:C:\Users\Hamza\Desktop\TPS Project\Cassa_Audio\progetto.c
+7BFA text3 CODE >86:C:\Users\Hamza\Desktop\TPS Project\Cassa_Audio\progetto.c
+7C04 text3 CODE >87:C:\Users\Hamza\Desktop\TPS Project\Cassa_Audio\progetto.c
+7C06 text3 CODE >89:C:\Users\Hamza\Desktop\TPS Project\Cassa_Audio\progetto.c
+7C0E text3 CODE >66:C:\Users\Hamza\Desktop\TPS Project\Cassa_Audio\progetto.c
+7C24 text3 CODE >93:C:\Users\Hamza\Desktop\TPS Project\Cassa_Audio\progetto.c
+7C24 text3 CODE >94:C:\Users\Hamza\Desktop\TPS Project\Cassa_Audio\progetto.c
+7C26 text3 CODE >95:C:\Users\Hamza\Desktop\TPS Project\Cassa_Audio\progetto.c
+7C34 text3 CODE >96:C:\Users\Hamza\Desktop\TPS Project\Cassa_Audio\progetto.c
+7C40 text3 CODE >97:C:\Users\Hamza\Desktop\TPS Project\Cassa_Audio\progetto.c
+7C4A text3 CODE >98:C:\Users\Hamza\Desktop\TPS Project\Cassa_Audio\progetto.c
+7912 text2 CODE >108:C:\Users\Hamza\Desktop\TPS Project\Cassa_Audio\i2c.c
+7912 text2 CODE >110:C:\Users\Hamza\Desktop\TPS Project\Cassa_Audio\i2c.c
+7916 text2 CODE >111:C:\Users\Hamza\Desktop\TPS Project\Cassa_Audio\i2c.c
+791A text2 CODE >112:C:\Users\Hamza\Desktop\TPS Project\Cassa_Audio\i2c.c
+791C text2 CODE >113:C:\Users\Hamza\Desktop\TPS Project\Cassa_Audio\i2c.c
+791E text2 CODE >117:C:\Users\Hamza\Desktop\TPS Project\Cassa_Audio\i2c.c
+7922 text2 CODE >121:C:\Users\Hamza\Desktop\TPS Project\Cassa_Audio\i2c.c
+7926 text2 CODE >128:C:\Users\Hamza\Desktop\TPS Project\Cassa_Audio\i2c.c
+7928 text2 CODE >129:C:\Users\Hamza\Desktop\TPS Project\Cassa_Audio\i2c.c
+792A text2 CODE >130:C:\Users\Hamza\Desktop\TPS Project\Cassa_Audio\i2c.c
+792C text2 CODE >132:C:\Users\Hamza\Desktop\TPS Project\Cassa_Audio\i2c.c
+79EC text1 CODE >40:C:\Users\Hamza\Desktop\TPS Project\Cassa_Audio\progetto.c
+79EC text1 CODE >41:C:\Users\Hamza\Desktop\TPS Project\Cassa_Audio\progetto.c
+79F0 text1 CODE >42:C:\Users\Hamza\Desktop\TPS Project\Cassa_Audio\progetto.c
+79F4 text1 CODE >43:C:\Users\Hamza\Desktop\TPS Project\Cassa_Audio\progetto.c
+79F8 text1 CODE >44:C:\Users\Hamza\Desktop\TPS Project\Cassa_Audio\progetto.c
+79FC text1 CODE >45:C:\Users\Hamza\Desktop\TPS Project\Cassa_Audio\progetto.c
+79FE text1 CODE >46:C:\Users\Hamza\Desktop\TPS Project\Cassa_Audio\progetto.c
+7A00 text1 CODE >47:C:\Users\Hamza\Desktop\TPS Project\Cassa_Audio\progetto.c
+7A02 text1 CODE >48:C:\Users\Hamza\Desktop\TPS Project\Cassa_Audio\progetto.c
+7A0A text1 CODE >49:C:\Users\Hamza\Desktop\TPS Project\Cassa_Audio\progetto.c
+7A10 text1 CODE >50:C:\Users\Hamza\Desktop\TPS Project\Cassa_Audio\progetto.c
+7A1A text1 CODE >51:C:\Users\Hamza\Desktop\TPS Project\Cassa_Audio\progetto.c
+7A24 text1 CODE >52:C:\Users\Hamza\Desktop\TPS Project\Cassa_Audio\progetto.c
+7A30 text1 CODE >53:C:\Users\Hamza\Desktop\TPS Project\Cassa_Audio\progetto.c
+7A34 text1 CODE >54:C:\Users\Hamza\Desktop\TPS Project\Cassa_Audio\progetto.c
+7A3E text1 CODE >55:C:\Users\Hamza\Desktop\TPS Project\Cassa_Audio\progetto.c
+7A48 text1 CODE >56:C:\Users\Hamza\Desktop\TPS Project\Cassa_Audio\progetto.c
+78D0 text0 CODE >27:C:\Users\Hamza\Desktop\TPS Project\Cassa_Audio\progetto.c
+78D0 text0 CODE >29:C:\Users\Hamza\Desktop\TPS Project\Cassa_Audio\progetto.c
+78D4 text0 CODE >31:C:\Users\Hamza\Desktop\TPS Project\Cassa_Audio\progetto.c
+78DC text0 CODE >32:C:\Users\Hamza\Desktop\TPS Project\Cassa_Audio\progetto.c
+78E2 cinit CODE >1050:C:\Users\Hamza\AppData\Local\Temp\s2r4.
+78E2 cinit CODE >1052:C:\Users\Hamza\AppData\Local\Temp\s2r4.
+78E2 cinit CODE >1055:C:\Users\Hamza\AppData\Local\Temp\s2r4.
+78E2 cinit CODE >1088:C:\Users\Hamza\AppData\Local\Temp\s2r4.
+78E4 cinit CODE >1091:C:\Users\Hamza\AppData\Local\Temp\s2r4.
+78E6 cinit CODE >1092:C:\Users\Hamza\AppData\Local\Temp\s2r4.
+78E8 cinit CODE >1093:C:\Users\Hamza\AppData\Local\Temp\s2r4.
+78EA cinit CODE >1094:C:\Users\Hamza\AppData\Local\Temp\s2r4.
+78EC cinit CODE >1095:C:\Users\Hamza\AppData\Local\Temp\s2r4.
+78EE cinit CODE >1101:C:\Users\Hamza\AppData\Local\Temp\s2r4.
+78EE cinit CODE >1104:C:\Users\Hamza\AppData\Local\Temp\s2r4.
+78F0 cinit CODE >1105:C:\Users\Hamza\AppData\Local\Temp\s2r4.
+78F2 cinit CODE >1106:C:\Users\Hamza\AppData\Local\Temp\s2r4.
+78F4 cinit CODE >1107:C:\Users\Hamza\AppData\Local\Temp\s2r4.
+# %SYMTAB Section
+# An enumeration of all symbols in the program.
+# The beginning of the section is indicated by %SYMTAB.
+# Each line describes a single symbol as follows:
+#    <label> <value> [-]<load-adj> <class> <space> <psect> <file-name>
+# The value and load-adj are both in unqualified hexadecimal.
+# All other numeric values are in decimal.  The load-adj is the
+# quantity one needs to add to the symbol value in order to obtain the load
+# address of the symbol.  This value may be signed. If the symbol
+# was defined in a psect then <psect> will be "-". File-name
+# is the name of the object file in which the symbol was defined.
+%SYMTAB
+__Lmediumconst 0 0 MEDIUMCONST 0 mediumconst Cassa_Audio.obj
+__Hspace_0 300008 0 ABS 0 - Cassa_Audio.obj
+__Hspace_1 D2 0 ABS 0 - Cassa_Audio.obj
+__Hspace_2 0 0 ABS 0 - Cassa_Audio.obj
+__Hibigdata 0 0 CODE 0 ibigdata Cassa_Audio.obj
+__mediumconst 0 0 MEDIUMCONST 0 mediumconst C:\Users\Hamza\AppData\Local\Temp\s2r4.obj
+__Heeprom_data 0 0 EEDATA 0 eeprom_data Cassa_Audio.obj
+__CFG_MCLRE$ON 0 0 ABS 0 - Cassa_Audio.obj
+PL2 7C4C 0 CODE 0 text3 Cassa_Audio.obj
+PL4 7C56 0 CODE 0 text3 Cassa_Audio.obj
+PL6 7AC8 0 CODE 0 text12 Cassa_Audio.obj
+PL8 7BBA 0 CODE 0 text8 Cassa_Audio.obj
+_IdleI2C 78C0 0 CODE 0 text11 Cassa_Audio.obj
+__Lsmallconst 0 0 SMALLCONST 0 smallconst Cassa_Audio.obj
+_RBPU 7F8F 0 ABS 0 - Cassa_Audio.obj
+___sp 0 0 STACK 2 stack C:\Users\Hamza\AppData\Local\Temp\s2r4.obj
+_main 78D0 0 CODE 0 text0 Cassa_Audio.obj
+_TEA_cmd 7B44 0 CODE 0 text8 Cassa_Audio.obj
+start 2 0 CODE 0 init C:\Users\Hamza\AppData\Local\Temp\s2r4.obj
+__size_of_main 0 0 ABS 0 - Cassa_Audio.obj
+__HbssCOMRAM 0 0 ABS 0 bssCOMRAM Cassa_Audio.obj
+?___lmul 1 0 COMRAM 1 cstackCOMRAM Cassa_Audio.obj
+__Hpa_nodes 0 0 ABS 0 pa_nodes Cassa_Audio.obj
+__Hpowerup 2 0 CODE 0 powerup Cassa_Audio.obj
+__pbitbssCOMRAM D0 -B6 COMRAM 1 bitbssCOMRAM Cassa_Audio.obj
+_functionsRoutine 7BC2 0 CODE 0 text3 Cassa_Audio.obj
+__accesstop 60 0 ABS 0 - C:\Users\Hamza\AppData\Local\Temp\s2r4.obj
+__size_of_OpenI2C_StSpeed 0 0 ABS 0 - Cassa_Audio.obj
+intlevel0 0 0 CODE 0 text C:\Users\Hamza\AppData\Local\Temp\s2r4.obj
+intlevel1 0 0 CODE 0 text C:\Users\Hamza\AppData\Local\Temp\s2r4.obj
+intlevel2 0 0 CODE 0 text C:\Users\Hamza\AppData\Local\Temp\s2r4.obj
+intlevel3 0 0 CODE 0 text C:\Users\Hamza\AppData\Local\Temp\s2r4.obj
+TEA_cmd@command 4 0 COMRAM 1 cstackCOMRAM Cassa_Audio.obj
+__LbssCOMRAM 0 0 ABS 0 bssCOMRAM Cassa_Audio.obj
+_TEA_setFreq 7C5C 0 CODE 0 text4 Cassa_Audio.obj
+__LnvFARRAM 0 0 FARRAM 0 nvFARRAM Cassa_Audio.obj
+TEA_readData@read1 4 0 COMRAM 1 cstackCOMRAM Cassa_Audio.obj
+TEA_readData@read2 5 0 COMRAM 1 cstackCOMRAM Cassa_Audio.obj
+__Hifardata 0 0 CODE 0 ifardata Cassa_Audio.obj
+TEA_setFreq@freq D 0 COMRAM 1 cstackCOMRAM Cassa_Audio.obj
+__Hclrtext 0 0 ABS 0 clrtext Cassa_Audio.obj
+_ADCON1 FC1 0 ABS 0 - Cassa_Audio.obj
+___inthi_sp 0 0 STACK 2 stack C:\Users\Hamza\AppData\Local\Temp\s2r4.obj
+___intlo_sp 0 0 STACK 2 stack C:\Users\Hamza\AppData\Local\Temp\s2r4.obj
+__size_of_ReadI2C 0 0 ABS 0 - Cassa_Audio.obj
+__Hintcode_body 0 0 ABS 0 intcode_body Cassa_Audio.obj
+__end_of___lmul 79EC 0 CODE 0 text5 Cassa_Audio.obj
+__Lintsave_regs 0 0 BIGRAM 1 intsave_regs Cassa_Audio.obj
+__Hmediumconst 0 0 MEDIUMCONST 0 mediumconst Cassa_Audio.obj
+__CFG_DEBUG$ON 0 0 ABS 0 - Cassa_Audio.obj
+__Hintcodelo 2 0 CODE 0 intcodelo Cassa_Audio.obj
+_detectButton 7A58 0 CODE 0 text12 Cassa_Audio.obj
+__size_of_setup 0 0 ABS 0 - Cassa_Audio.obj
+__end_of_functionsRoutine 7C4C 0 CODE 0 text3 Cassa_Audio.obj
+__Lintcodelo 2 0 CODE 0 intcodelo Cassa_Audio.obj
+start_initialization 78E2 0 CODE 0 cinit Cassa_Audio.obj
+__size_of_functionsRoutine 0 0 ABS 0 - Cassa_Audio.obj
+_OSCCON FD3 0 ABS 0 - Cassa_Audio.obj
+__HnvFARRAM 0 0 FARRAM 0 nvFARRAM Cassa_Audio.obj
+_TRISCbits F94 0 ABS 0 - Cassa_Audio.obj
+___rparam_used 1 0 ABS 0 - Cassa_Audio.obj
+__end_ofPL2 7C56 0 CODE 0 text3 Cassa_Audio.obj
+__end_ofPL4 7C5C 0 CODE 0 text3 Cassa_Audio.obj
+__end_ofPL6 7ACE 0 CODE 0 text12 Cassa_Audio.obj
+__end_ofPL8 7BC2 0 CODE 0 text8 Cassa_Audio.obj
+_SSPADD FC8 0 ABS 0 - Cassa_Audio.obj
+_SSPBUF FC9 0 ABS 0 - Cassa_Audio.obj
+__size_of_detectButton 0 0 ABS 0 - Cassa_Audio.obj
+__end_of_ReadI2C 7912 0 CODE 0 text7 Cassa_Audio.obj
+__Hbank0 0 0 ABS 0 bank0 Cassa_Audio.obj
+__Hbank1 0 0 ABS 0 bank1 Cassa_Audio.obj
+__Hbank2 0 0 ABS 0 bank2 Cassa_Audio.obj
+__Hbank3 0 0 ABS 0 bank3 Cassa_Audio.obj
+__Hbank4 0 0 ABS 0 bank4 Cassa_Audio.obj
+__Hbank5 0 0 ABS 0 bank5 Cassa_Audio.obj
+__Hcinit 0 0 ABS 0 cinit Cassa_Audio.obj
+__Hconst 0 0 CONST 0 const Cassa_Audio.obj
+__Hidata 0 0 CODE 0 idata Cassa_Audio.obj
+__Hidloc 0 0 IDLOC 0 idloc Cassa_Audio.obj
+__Hnvbit 0 0 COMRAM 1 nvbit Cassa_Audio.obj
+__Hparam 0 0 COMRAM 1 rparam Cassa_Audio.obj
+__Hrdata 0 0 COMRAM 1 rdata Cassa_Audio.obj
+__Hstack 0 0 STACK 2 stack Cassa_Audio.obj
+__Htext0 0 0 ABS 0 text0 Cassa_Audio.obj
+__Htext1 0 0 ABS 0 text1 Cassa_Audio.obj
+__Htext2 0 0 ABS 0 text2 Cassa_Audio.obj
+__Htext3 0 0 ABS 0 text3 Cassa_Audio.obj
+__Htext4 0 0 ABS 0 text4 Cassa_Audio.obj
+__Htext5 0 0 ABS 0 text5 Cassa_Audio.obj
+__Htext6 0 0 ABS 0 text6 Cassa_Audio.obj
+__Htext7 0 0 ABS 0 text7 Cassa_Audio.obj
+__Htext8 0 0 ABS 0 text8 Cassa_Audio.obj
+__Htext9 0 0 ABS 0 text9 Cassa_Audio.obj
+__Hbigbss 0 0 BIGRAM 1 bigbss Cassa_Audio.obj
+__Hbigram 0 0 ABS 0 bigram Cassa_Audio.obj
+__smallconst 0 0 SMALLCONST 0 smallconst C:\Users\Hamza\AppData\Local\Temp\s2r4.obj
+__Hcomram 0 0 ABS 0 comram Cassa_Audio.obj
+__Hconfig 300008 0 CONFIG 0 config Cassa_Audio.obj
+__Lbank0 0 0 ABS 0 bank0 Cassa_Audio.obj
+__Lbank1 0 0 ABS 0 bank1 Cassa_Audio.obj
+__Lbank2 0 0 ABS 0 bank2 Cassa_Audio.obj
+__Lbank3 0 0 ABS 0 bank3 Cassa_Audio.obj
+__Lbank4 0 0 ABS 0 bank4 Cassa_Audio.obj
+__Lbank5 0 0 ABS 0 bank5 Cassa_Audio.obj
+__Lcinit 0 0 ABS 0 cinit Cassa_Audio.obj
+__Lconst 0 0 CONST 0 const Cassa_Audio.obj
+__Lidata 0 0 CODE 0 idata Cassa_Audio.obj
+__Lidloc 0 0 IDLOC 0 idloc Cassa_Audio.obj
+__end_of_detectButton 7AC8 0 CODE 0 text12 Cassa_Audio.obj
+__Lnvbit 0 0 COMRAM 1 nvbit Cassa_Audio.obj
+__Lparam 0 0 COMRAM 1 rparam Cassa_Audio.obj
+__Lrdata 0 0 COMRAM 1 rdata Cassa_Audio.obj
+__Lstack 0 0 STACK 2 stack Cassa_Audio.obj
+__Ltext0 0 0 ABS 0 text0 Cassa_Audio.obj
+__Ltext1 0 0 ABS 0 text1 Cassa_Audio.obj
+__Ltext2 0 0 ABS 0 text2 Cassa_Audio.obj
+__Ltext3 0 0 ABS 0 text3 Cassa_Audio.obj
+__Ltext4 0 0 ABS 0 text4 Cassa_Audio.obj
+__Ltext5 0 0 ABS 0 text5 Cassa_Audio.obj
+__Ltext6 0 0 ABS 0 text6 Cassa_Audio.obj
+__Ltext7 0 0 ABS 0 text7 Cassa_Audio.obj
+__Ltext8 0 0 ABS 0 text8 Cassa_Audio.obj
+__Ltext9 0 0 ABS 0 text9 Cassa_Audio.obj
+__Hfarbss 0 0 FARRAM 0 farbss Cassa_Audio.obj
+__Lintcode_body 0 0 ABS 0 intcode_body Cassa_Audio.obj
+__Habs1 0 0 ABS 0 abs1 Cassa_Audio.obj
+__Hdata 0 0 ABS 0 data Cassa_Audio.obj
+__Hinit 2 0 CODE 0 init Cassa_Audio.obj
+__Hrbit 0 0 COMRAM 1 rbit Cassa_Audio.obj
+__Hrbss 0 0 COMRAM 1 rbss Cassa_Audio.obj
+__Htemp 0 0 COMRAM 1 temp Cassa_Audio.obj
+__Htext 0 0 ABS 0 text Cassa_Audio.obj
+__Labs1 0 0 ABS 0 abs1 Cassa_Audio.obj
+__Ldata 0 0 ABS 0 data Cassa_Audio.obj
+__Linit 2 0 CODE 0 init Cassa_Audio.obj
+__Lrbit 0 0 COMRAM 1 rbit Cassa_Audio.obj
+__Lrbss 0 0 COMRAM 1 rbss Cassa_Audio.obj
+__Ltemp 0 0 COMRAM 1 temp Cassa_Audio.obj
+__Ltext 0 0 ABS 0 text Cassa_Audio.obj
+___lmul 79A0 0 CODE 0 text5 Cassa_Audio.obj
+__HcstackCOMRAM 0 0 ABS 0 cstackCOMRAM Cassa_Audio.obj
+__Hintret 0 0 ABS 0 intret Cassa_Audio.obj
+__Hirdata 0 0 CODE 0 irdata Cassa_Audio.obj
+PL10 7A52 0 CODE 0 text1 Cassa_Audio.obj
+_RB0 7C08 0 ABS 0 - Cassa_Audio.obj
+_RB1 7C09 0 ABS 0 - Cassa_Audio.obj
+__S0 300008 0 ABS 0 - Cassa_Audio.obj
+__S1 1B 0 ABS 0 - Cassa_Audio.obj
+__S2 0 0 ABS 0 - Cassa_Audio.obj
+__CFG_OSC$IRCIO7 0 0 ABS 0 - Cassa_Audio.obj
+__size_of_IdleI2C 0 0 ABS 0 - Cassa_Audio.obj
+__size_of_TEA_cmd 0 0 ABS 0 - Cassa_Audio.obj
+_function 19 0 COMRAM 1 bssCOMRAM Cassa_Audio.obj
+__CFG_PBADEN$OFF 0 0 ABS 0 - Cassa_Audio.obj
+__Lbigdata 0 0 BIGRAM 1 bigdata Cassa_Audio.obj
+__Hnvrram 0 0 COMRAM 1 nvrram Cassa_Audio.obj
+__end_of_TEA_setFreq 7D00 0 CODE 0 text4 Cassa_Audio.obj
+__end_ofPL10 7A58 0 CODE 0 text1 Cassa_Audio.obj
+__Lintentry 0 0 ABS 0 intentry Cassa_Audio.obj
+__Hramtop 600 0 RAM 0 ramtop Cassa_Audio.obj
+__Hrparam 0 0 COMRAM 1 rparam Cassa_Audio.obj
+__activetblptr 2 0 ABS 0 - Cassa_Audio.obj
+__Hstruct 0 0 COMRAM 1 struct Cassa_Audio.obj
+__size_of___lmul 0 0 ABS 0 - Cassa_Audio.obj
+__Htext10 0 0 ABS 0 text10 Cassa_Audio.obj
+__Htext11 0 0 ABS 0 text11 Cassa_Audio.obj
+__Htext12 0 0 ABS 0 text12 Cassa_Audio.obj
+__size_of_WriteI2C 0 0 ABS 0 - Cassa_Audio.obj
+__ptext10 792E 0 CODE 0 text10 Cassa_Audio.obj
+__ptext11 78C0 0 CODE 0 text11 Cassa_Audio.obj
+__ptext12 7A58 0 CODE 0 text12 Cassa_Audio.obj
+__Lbigbss 0 0 BIGRAM 1 bigbss Cassa_Audio.obj
+__Lbigram 0 0 ABS 0 bigram Cassa_Audio.obj
+___lmul@multiplier 1 0 COMRAM 1 cstackCOMRAM Cassa_Audio.obj
+_TEA_readData 7ACE 0 CODE 0 text6 Cassa_Audio.obj
+__Lcomram 0 0 ABS 0 comram Cassa_Audio.obj
+__Lconfig 300000 0 CONFIG 0 config Cassa_Audio.obj
+_TEA_writeData 7956 0 CODE 0 text9 Cassa_Audio.obj
+__Lfarbss 0 0 FARRAM 0 farbss Cassa_Audio.obj
+_status D1 -B6 COMRAM 1 bitbssCOMRAM Cassa_Audio.obj
+__Lfardata 0 0 FARRAM 0 fardata Cassa_Audio.obj
+WriteI2C@data_out 2 0 COMRAM 1 cstackCOMRAM Cassa_Audio.obj
+TEA_cmd@stat 3 0 COMRAM 1 cstackCOMRAM Cassa_Audio.obj
+stackhi 5EE 0 ABS 0 - C:\Users\Hamza\AppData\Local\Temp\s2r4.obj
+stacklo 60 0 ABS 0 - C:\Users\Hamza\AppData\Local\Temp\s2r4.obj
+__Lintcode 2 0 CODE 0 intcode Cassa_Audio.obj
+__end_of_IdleI2C 78D0 0 CODE 0 text11 Cassa_Audio.obj
+__Lintret 0 0 ABS 0 intret Cassa_Audio.obj
+__Lirdata 0 0 CODE 0 irdata Cassa_Audio.obj
+__CFG_LVP$OFF 0 0 ABS 0 - Cassa_Audio.obj
+__end_of_TEA_cmd 7BBA 0 CODE 0 text8 Cassa_Audio.obj
+__Lspace_0 0 0 ABS 0 - Cassa_Audio.obj
+__Lspace_1 0 0 ABS 0 - Cassa_Audio.obj
+__Lspace_2 0 0 ABS 0 - Cassa_Audio.obj
+__pbssCOMRAM 15 0 COMRAM 1 bssCOMRAM Cassa_Audio.obj
+__HbitbssCOMRAM 0 0 ABS 0 bitbssCOMRAM Cassa_Audio.obj
+__Lend_init 2 0 CODE 0 end_init Cassa_Audio.obj
+__LcstackCOMRAM 0 0 ABS 0 cstackCOMRAM Cassa_Audio.obj
+__size_of_TEA_readData 0 0 ABS 0 - Cassa_Audio.obj
+end_of_initialization 78EE 0 CODE 0 cinit Cassa_Audio.obj
+_WriteI2C 792E 0 CODE 0 text10 Cassa_Audio.obj
+__Lnvrram 0 0 COMRAM 1 nvrram Cassa_Audio.obj
+__Hintentry 0 0 ABS 0 intentry Cassa_Audio.obj
+__Hreset_vec 2 0 CODE 0 reset_vec Cassa_Audio.obj
+__end_of_WriteI2C 7956 0 CODE 0 text10 Cassa_Audio.obj
+_ReadI2C 78F8 0 CODE 0 text7 Cassa_Audio.obj
+__Lramtop 600 0 RAM 0 ramtop Cassa_Audio.obj
+__Lrparam 0 0 COMRAM 1 rparam Cassa_Audio.obj
+__pcinit 78E2 0 CODE 0 cinit Cassa_Audio.obj
+_SSPCON1bits FC6 0 ABS 0 - Cassa_Audio.obj
+_SSPCON2bits FC5 0 ABS 0 - Cassa_Audio.obj
+__ptext0 78D0 0 CODE 0 text0 Cassa_Audio.obj
+__ptext1 79EC 0 CODE 0 text1 Cassa_Audio.obj
+__ptext2 7912 0 CODE 0 text2 Cassa_Audio.obj
+__ptext3 7BC2 0 CODE 0 text3 Cassa_Audio.obj
+__ptext4 7C5C 0 CODE 0 text4 Cassa_Audio.obj
+__ptext5 79A0 0 CODE 0 text5 Cassa_Audio.obj
+__ptext6 7ACE 0 CODE 0 text6 Cassa_Audio.obj
+__ptext7 78F8 0 CODE 0 text7 Cassa_Audio.obj
+__ptext8 7B44 0 CODE 0 text8 Cassa_Audio.obj
+__ptext9 7956 0 CODE 0 text9 Cassa_Audio.obj
+__Lstruct 0 0 COMRAM 1 struct Cassa_Audio.obj
+__Ltext10 0 0 ABS 0 text10 Cassa_Audio.obj
+__Ltext11 0 0 ABS 0 text11 Cassa_Audio.obj
+__Ltext12 0 0 ABS 0 text12 Cassa_Audio.obj
+__ramtop 600 0 RAM 0 ramtop C:\Users\Hamza\AppData\Local\Temp\s2r4.obj
+__end_of_TEA_readData 7B44 0 CODE 0 text6 Cassa_Audio.obj
+__Lpowerup 2 0 CODE 0 powerup Cassa_Audio.obj
+__Leeprom_data 0 0 EEDATA 0 eeprom_data Cassa_Audio.obj
+__size_of_TEA_setFreq 0 0 ABS 0 - Cassa_Audio.obj
+__Lreset_vec 0 0 CODE 0 reset_vec Cassa_Audio.obj
+__end_of_OpenI2C_StSpeed 792E 0 CODE 0 text2 Cassa_Audio.obj
+detectButton@q 2 0 COMRAM 1 cstackCOMRAM Cassa_Audio.obj
+___param_bank 10 0 ABS 0 - Cassa_Audio.obj
+__CFG_WDT$OFF 0 0 ABS 0 - Cassa_Audio.obj
+__Hbigdata 0 0 BIGRAM 1 bigdata Cassa_Audio.obj
+__end_of__initialization 78EE 0 CODE 0 cinit Cassa_Audio.obj
+__Libigdata 0 0 CODE 0 ibigdata Cassa_Audio.obj
+__size_of_TEA_writeData 0 0 ABS 0 - Cassa_Audio.obj
+__Lclrtext 0 0 ABS 0 clrtext Cassa_Audio.obj
+___lmul@product 9 0 COMRAM 1 cstackCOMRAM Cassa_Audio.obj
+___lmul@multiplicand 5 0 COMRAM 1 cstackCOMRAM Cassa_Audio.obj
+__pcstackCOMRAM 1 0 COMRAM 1 cstackCOMRAM Cassa_Audio.obj
+_SSPCON1 FC6 0 ABS 0 - Cassa_Audio.obj
+_SSPCON2 FC5 0 ABS 0 - Cassa_Audio.obj
+_SSPSTAT FC7 0 ABS 0 - Cassa_Audio.obj
+__Hend_init 6 0 CODE 0 end_init Cassa_Audio.obj
+__end_of_main 78E2 0 CODE 0 text0 Cassa_Audio.obj
+__Lpa_nodes 0 0 ABS 0 pa_nodes Cassa_Audio.obj
+_LATB0 7C50 0 ABS 0 - Cassa_Audio.obj
+_LATB1 7C51 0 ABS 0 - Cassa_Audio.obj
+_TRISB F93 0 ABS 0 - Cassa_Audio.obj
+__end_of_setup 7A52 0 CODE 0 text1 Cassa_Audio.obj
+__HRAM 0 0 ABS 0 - Cassa_Audio.obj
+__Hbss 0 0 RAM 1 bss Cassa_Audio.obj
+__Hram 0 0 ABS 0 ram Cassa_Audio.obj
+__Hsfr 0 0 ABS 0 sfr Cassa_Audio.obj
+__LRAM 1 0 ABS 0 - Cassa_Audio.obj
+__Lbss 0 0 RAM 1 bss Cassa_Audio.obj
+__Lram 0 0 ABS 0 ram Cassa_Audio.obj
+__Lsfr 0 0 ABS 0 sfr Cassa_Audio.obj
+_byte1 15 0 COMRAM 1 bssCOMRAM Cassa_Audio.obj
+_byte2 16 0 COMRAM 1 bssCOMRAM Cassa_Audio.obj
+_byte3 17 0 COMRAM 1 bssCOMRAM Cassa_Audio.obj
+_byte4 18 0 COMRAM 1 bssCOMRAM Cassa_Audio.obj
+__end_of_TEA_writeData 79A0 0 CODE 0 text9 Cassa_Audio.obj
+_setup 79EC 0 CODE 0 text1 Cassa_Audio.obj
+_smode D0 -B6 COMRAM 1 bitbssCOMRAM Cassa_Audio.obj
+_SSPSTATbits FC7 0 ABS 0 - Cassa_Audio.obj
+_OpenI2C_StSpeed 7912 0 CODE 0 text2 Cassa_Audio.obj
+__LbitbssCOMRAM 0 0 ABS 0 bitbssCOMRAM Cassa_Audio.obj
+TEA_setFreq@rawFreq 10 0 COMRAM 1 cstackCOMRAM Cassa_Audio.obj
+__initialization 78E2 0 CODE 0 cinit Cassa_Audio.obj
+__Hfardata 0 0 FARRAM 0 fardata Cassa_Audio.obj
+__Hsmallconst 0 0 SMALLCONST 0 smallconst Cassa_Audio.obj
+__Lifardata 0 0 CODE 0 ifardata Cassa_Audio.obj
+__Hintsave_regs 0 0 BIGRAM 1 intsave_regs Cassa_Audio.obj
+__Hintcode 2 0 CODE 0 intcode Cassa_Audio.obj
+# %SPLITSTAB Section
+# This section enumerates all the psect splits performed by the assembler.
+# The beginning of the section is indicated by %SPLITSTAB.
+# Each line is a record a particular split, where the parent psect is on
+# the left and the child on the right.  Note that a child psect is always
+# split form the top of the parent psect. All splits from a given parent
+# are listed in the order in which they occurred.
+%SPLITSTAB
+# %DABS Section
+# This section contains a table of all usuage of the assember
+# directive DABS in the program. Each line has the following format:
+#   <name> <space> <address> <size>
+# If the DABS was originally labelled then that shall be <name>,
+# otherwise name will be "-".  The <space> number is in decimal.
+# <address> and <size> are in byte units as unqaulified hexadecimal
+%DABS
+# %SEGMENTS Section
+# This sections enumerates the segments of the program.  Each segment
+# is described on a single line as follows:
+#    <name> <space> <link address> <file address> <size> <delta>
+# Addresses and size are in unqualified hexadecimal.  The link address
+# and size are in units of delta. The file address is in units of bytes.
+# All other numeric quantities are in decimal.
+%SEGMENTS
+cinit 0 78E2 78E2 16 1
+text0 0 78D0 78D0 12 1
+text1 0 79EC 79EC 6C 1
+text2 0 7912 7912 1C 1
+text3 0 7BC2 7BC2 9A 1
+text4 0 7C5C 7C5C A4 1
+text5 0 79A0 79A0 4C 1
+text6 0 7ACE 7ACE 76 1
+text7 0 78F8 78F8 1A 1
+text8 0 7B44 7B44 7E 1
+text9 0 7956 7956 4A 1
+text10 0 792E 792E 28 1
+text11 0 78C0 78C0 10 1
+text12 0 7A58 7A58 76 1
+cstackCOMRAM 1 1 1 1A 1
+reset_vec 0 0 0 6 1
+config 0 300000 300000 8 1

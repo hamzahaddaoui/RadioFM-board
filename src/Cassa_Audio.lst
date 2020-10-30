@@ -1,0 +1,1879 @@
+
+
+Microchip Technology PIC18 PRO Macro Assembler V1.36 build -262312587 
+                                                                                               Wed Mar 09 09:52:50 2016
+
+Microchip Technology Omniscient Code Generator v1.36 (PRO mode) build 201601150325
+     1                           	processor	18F2420
+     2                           	fnconf	rparam,??,?,0
+     3                           	opt	pw 120
+     4                           	opt	pm
+     5                           	psect	cinit,global,reloc=2,class=CODE,delta=1
+     6                           	psect	bitbssCOMRAM,global,bit,class=COMRAM,space=1,delta=1
+     7                           	psect	bssCOMRAM,global,class=COMRAM,space=1,delta=1
+     8                           	psect	cstackCOMRAM,global,class=COMRAM,space=1,delta=1
+     9                           	psect	text0,global,reloc=2,class=CODE,delta=1
+    10                           	psect	text1,global,reloc=2,class=CODE,delta=1
+    11                           	psect	text2,global,reloc=2,class=CODE,delta=1
+    12                           	psect	text3,global,reloc=2,class=CODE,delta=1
+    13                           	psect	text4,global,reloc=2,class=CODE,delta=1
+    14                           	psect	text5,global,reloc=2,class=CODE,delta=1
+    15                           	psect	text6,global,reloc=2,class=CODE,delta=1
+    16                           	psect	text7,global,reloc=2,class=CODE,delta=1
+    17                           	psect	text8,global,reloc=2,class=CODE,delta=1
+    18                           	psect	text9,global,reloc=2,class=CODE,delta=1
+    19                           	psect	text10,global,reloc=2,class=CODE,delta=1
+    20                           	psect	text11,global,reloc=2,class=CODE,delta=1
+    21                           	psect	text12,global,reloc=2,class=CODE,delta=1
+    22                           	psect	intsave_regs,global,class=BIGRAM,space=1,delta=1
+    23                           	psect	rparam,global,class=COMRAM,space=1,delta=1
+    24                           	psect	pa_nodes,global,class=CODE,delta=1
+    25  0000                     _LATB	set	3978
+    26  0000                     _TRISB	set	3987
+    27  0000                     _TRISCbits	set	3988
+    28  0000                     _RB0	set	31752
+    29  0000                     _RB1	set	31753
+    30  0000                     _RB2	set	31754
+    31  0000                     _RB3	set	31755
+    32  0000                     _ADCON1	set	4033
+    33  0000                     _OSCCON	set	4051
+    34  0000                     _SSPADD	set	4040
+    35  0000                     _SSPBUF	set	4041
+    36  0000                     _SSPCON1	set	4038
+    37  0000                     _SSPCON1bits	set	4038
+    38  0000                     _SSPCON2	set	4037
+    39  0000                     _SSPCON2bits	set	4037
+    40  0000                     _SSPSTAT	set	4039
+    41  0000                     _SSPSTATbits	set	4039
+    42  0000                     _RBPU	set	32655
+    43                           
+    44                           ; #config settings
+    45  0000                     intcon2	equ	0xFF1
+    46                           wreg	equ	0xFE8
+    47                           status	equ	0xFD8
+    48                           
+    49                           	psect	cinit
+    50  0038E2                     __pcinit:
+    51                           	opt stack 0
+    52  0038E2                     start_initialization:
+    53                           	opt stack 0
+    54  0038E2                     __initialization:
+    55                           	opt stack 0
+    56                           
+    57                           ; Clear objects allocated to BITCOMRAM (1 bytes)
+    58  0038E2  6A1A               	clrf	(__pbitbssCOMRAM/(0+8))& (0+255),c
+    59                           
+    60                           ; Clear objects allocated to COMRAM (5 bytes)
+    61  0038E4  6A19               	clrf	(__pbssCOMRAM+4)& (0+255),c
+    62  0038E6  6A18               	clrf	(__pbssCOMRAM+3)& (0+255),c
+    63  0038E8  6A17               	clrf	(__pbssCOMRAM+2)& (0+255),c
+    64  0038EA  6A16               	clrf	(__pbssCOMRAM+1)& (0+255),c
+    65  0038EC  6A15               	clrf	__pbssCOMRAM& (0+255),c
+    66  0038EE                     end_of_initialization:
+    67                           	opt stack 0
+    68  0038EE                     __end_of__initialization:
+    69                           	opt stack 0
+    70  0038EE  0E00               	movlw	low (__Lmediumconst shr (0+16))
+    71  0038F0  6EF8               	movwf	tblptru,c
+    72  0038F2  0100               	movlb	0
+    73  0038F4  EF68  F01C         	goto	_main	;jump to C main() function
+    74                           tblptru	equ	0xFF8
+    75                           intcon2	equ	0xFF1
+    76                           wreg	equ	0xFE8
+    77                           status	equ	0xFD8
+    78                           
+    79                           	psect	bitbssCOMRAM
+    80  0000D0                     __pbitbssCOMRAM:
+    81                           	opt stack 0
+    82  0000D0                     _smode:
+    83                           	opt stack 0
+    84  0000D0                     	ds	1
+    85  0000D1                     _status:
+    86                           	opt stack 0
+    87  0000D1                     	ds	1
+    88                           tblptru	equ	0xFF8
+    89                           intcon2	equ	0xFF1
+    90                           wreg	equ	0xFE8
+    91                           status	equ	0xFD8
+    92                           
+    93                           	psect	bssCOMRAM
+    94  000015                     __pbssCOMRAM:
+    95                           	opt stack 0
+    96  000015                     _byte1:
+    97                           	opt stack 0
+    98  000015                     	ds	1
+    99  000016                     _byte2:
+   100                           	opt stack 0
+   101  000016                     	ds	1
+   102  000017                     _byte3:
+   103                           	opt stack 0
+   104  000017                     	ds	1
+   105  000018                     _byte4:
+   106                           	opt stack 0
+   107  000018                     	ds	1
+   108  000019                     _function:
+   109                           	opt stack 0
+   110  000019                     	ds	1
+   111                           tblptru	equ	0xFF8
+   112                           intcon2	equ	0xFF1
+   113                           wreg	equ	0xFE8
+   114                           status	equ	0xFD8
+   115                           
+   116                           	psect	cstackCOMRAM
+   117  000001                     __pcstackCOMRAM:
+   118                           	opt stack 0
+   119  000001                     ??_detectButton:
+   120  000001                     ??_IdleI2C:
+   121  000001                     ?___lmul:
+   122                           	opt stack 0
+   123  000001                     ___lmul@multiplier:
+   124                           	opt stack 0
+   125                           
+   126                           ; 4 bytes @ 0x0
+   127  000001                     	ds	1
+   128  000002                     WriteI2C@data_out:
+   129                           	opt stack 0
+   130  000002                     detectButton@q:
+   131                           	opt stack 0
+   132                           
+   133                           ; 1 bytes @ 0x1
+   134  000002                     	ds	1
+   135  000003                     TEA_cmd@stat:
+   136                           	opt stack 0
+   137  000003                     TEA_readData@read1:
+   138                           	opt stack 0
+   139                           
+   140                           ; 1 bytes @ 0x2
+   141  000003                     	ds	1
+   142  000004                     TEA_cmd@command:
+   143                           	opt stack 0
+   144  000004                     TEA_readData@read2:
+   145                           	opt stack 0
+   146                           
+   147                           ; 1 bytes @ 0x3
+   148  000004                     	ds	1
+   149  000005                     ___lmul@multiplicand:
+   150                           	opt stack 0
+   151                           
+   152                           ; 4 bytes @ 0x4
+   153  000005                     	ds	4
+   154  000009                     ___lmul@product:
+   155                           	opt stack 0
+   156                           
+   157                           ; 4 bytes @ 0x8
+   158  000009                     	ds	4
+   159  00000D                     TEA_setFreq@freq:
+   160                           	opt stack 0
+   161                           
+   162                           ; 2 bytes @ 0xC
+   163  00000D                     	ds	2
+   164  00000F                     ??_TEA_setFreq:
+   165                           
+   166                           ; 1 bytes @ 0xE
+   167  00000F                     	ds	1
+   168  000010                     TEA_setFreq@rawFreq:
+   169                           	opt stack 0
+   170                           
+   171                           ; 4 bytes @ 0xF
+   172  000010                     	ds	4
+   173  000014                     ??_functionsRoutine:
+   174                           
+   175                           ; 1 bytes @ 0x13
+   176  000014                     	ds	1
+   177  000015                     tblptru	equ	0xFF8
+   178                           intcon2	equ	0xFF1
+   179                           wreg	equ	0xFE8
+   180                           status	equ	0xFD8
+   181                           
+   182                           ; 1 bytes @ 0x14
+   183 ;;
+   184 ;;Main: autosize = 0, tempsize = 0, incstack = 0, save=0
+   185 ;;
+   186 ;; *************** function _main *****************
+   187 ;; Defined at:
+   188 ;;		line 30 in file "C:\Users\Hamza\Desktop\Cassa_Audio\progetto.c"
+   189 ;; Parameters:    Size  Location     Type
+   190 ;;		None
+   191 ;; Auto vars:     Size  Location     Type
+   192 ;;		None
+   193 ;; Return value:  Size  Location     Type
+   194 ;;                  1    wreg      void 
+   195 ;; Registers used:
+   196 ;;		wreg, status,2, status,0, cstack
+   197 ;; Tracked objects:
+   198 ;;		On entry : 0/0
+   199 ;;		On exit  : 0/0
+   200 ;;		Unchanged: 0/0
+   201 ;; Data sizes:     COMRAM   BANK0   BANK1   BANK2
+   202 ;;      Params:         0       0       0       0
+   203 ;;      Locals:         0       0       0       0
+   204 ;;      Temps:          0       0       0       0
+   205 ;;      Totals:         0       0       0       0
+   206 ;;Total ram usage:        0 bytes
+   207 ;; Hardware stack levels required when called:    5
+   208 ;; This function calls:
+   209 ;;		_detectButton
+   210 ;;		_functionsRoutine
+   211 ;;		_setup
+   212 ;; This function is called by:
+   213 ;;		Startup code after reset
+   214 ;; This function uses a non-reentrant model
+   215 ;;
+   216                           
+   217                           	psect	text0
+   218  0038D0                     __ptext0:
+   219                           	opt stack 0
+   220  0038D0                     _main:
+   221                           	opt stack 26
+   222                           
+   223                           ;progetto.c: 31: setup();
+   224                           
+   225                           ;incstack = 0
+   226  0038D0  EC2D  F01D         	call	_setup	;wreg free
+   227  0038D4                     l1182:
+   228  0038D4  EC65  F01D         	call	_detectButton	;wreg free
+   229  0038D8  0900               	iorlw	0
+   230  0038DA  E0FC               	bz	l1182
+   231                           
+   232                           ;progetto.c: 34: functionsRoutine();
+   233  0038DC  ECDF  F01D         	call	_functionsRoutine	;wreg free
+   234  0038E0  D7F9               	goto	l1182
+   235  0038E2                     __end_of_main:
+   236                           	opt stack 0
+   237                           tblptru	equ	0xFF8
+   238                           intcon2	equ	0xFF1
+   239                           wreg	equ	0xFE8
+   240                           status	equ	0xFD8
+   241                           
+   242 ;; *************** function _setup *****************
+   243 ;; Defined at:
+   244 ;;		line 42 in file "C:\Users\Hamza\Desktop\Cassa_Audio\progetto.c"
+   245 ;; Parameters:    Size  Location     Type
+   246 ;;		None
+   247 ;; Auto vars:     Size  Location     Type
+   248 ;;		None
+   249 ;; Return value:  Size  Location     Type
+   250 ;;                  1    wreg      void 
+   251 ;; Registers used:
+   252 ;;		wreg, status,2, status,0, cstack
+   253 ;; Tracked objects:
+   254 ;;		On entry : 0/0
+   255 ;;		On exit  : 0/0
+   256 ;;		Unchanged: 0/0
+   257 ;; Data sizes:     COMRAM   BANK0   BANK1   BANK2
+   258 ;;      Params:         0       0       0       0
+   259 ;;      Locals:         0       0       0       0
+   260 ;;      Temps:          0       0       0       0
+   261 ;;      Totals:         0       0       0       0
+   262 ;;Total ram usage:        0 bytes
+   263 ;; Hardware stack levels used:    1
+   264 ;; Hardware stack levels required when called:    4
+   265 ;; This function calls:
+   266 ;;		_OpenI2C_StSpeed
+   267 ;;		_TEA_cmd
+   268 ;;		_TEA_setFreq
+   269 ;; This function is called by:
+   270 ;;		_main
+   271 ;; This function uses a non-reentrant model
+   272 ;;
+   273                           
+   274                           	psect	text1
+   275  003A5A                     __ptext1:
+   276                           	opt stack 0
+   277  003A5A                     _setup:
+   278                           	opt stack 26
+   279                           
+   280                           ;progetto.c: 43: ADCON1=0x0F;
+   281                           
+   282                           ;incstack = 0
+   283  003A5A  0E0F               	movlw	15
+   284  003A5C  6EC1               	movwf	4033,c	;volatile
+   285                           
+   286                           ;progetto.c: 44: OpenI2C_StSpeed();
+   287  003A5E  EC89  F01C         	call	_OpenI2C_StSpeed	;wreg free
+   288                           
+   289                           ;progetto.c: 45: OSCCON= 0b01110000;
+   290  003A62  0E70               	movlw	112
+   291  003A64  6ED3               	movwf	4051,c	;volatile
+   292                           
+   293                           ;progetto.c: 46: TRISB = 0b11110011;
+   294  003A66  0EF3               	movlw	243
+   295  003A68  6E93               	movwf	3987,c	;volatile
+   296                           
+   297                           ;progetto.c: 47: RBPU = 0;
+   298  003A6A  9EF1               	bcf	intcon2,7,c	;volatile
+   299                           
+   300                           ;progetto.c: 48: LATB= 0b00000011;
+   301  003A6C  0E03               	movlw	3
+   302  003A6E  6E8A               	movwf	3978,c	;volatile
+   303                           
+   304                           ;progetto.c: 49: RB3=0;
+   305  003A70  9681               	bcf	3969,3,c	;volatile
+   306                           
+   307                           ;progetto.c: 50: RB2=0;
+   308  003A72  9481               	bcf	3969,2,c	;volatile
+   309                           
+   310                           ;progetto.c: 51: TEA_setFreq(10250);
+   311  003A74  EC24  F01E         	call	PL2	;call to abstracted procedure
+   312  003A78  EC2C  F01E         	call	_TEA_setFreq	;wreg free
+   313                           
+   314                           ;progetto.c: 52: TEA_cmd(0x02,1);
+   315  003A7C  D823               	call	PL10	;call to abstracted procedure
+   316  003A7E  ECA0  F01D         	call	_TEA_cmd
+   317                           
+   318                           ;progetto.c: 53: TEA_cmd(0x03,1);
+   319  003A82  0E01               	movlw	1
+   320  003A84  6E03               	movwf	TEA_cmd@stat,c
+   321  003A86  0E03               	movlw	3
+   322  003A88  ECA0  F01D         	call	_TEA_cmd
+   323                           
+   324                           ;progetto.c: 54: TEA_cmd(0x04,1);
+   325  003A8C  0E01               	movlw	1
+   326  003A8E  6E03               	movwf	TEA_cmd@stat,c
+   327  003A90  0E04               	movlw	4
+   328  003A92  ECA0  F01D         	call	_TEA_cmd
+   329                           
+   330                           ;progetto.c: 55: TEA_cmd(0x05,1);
+   331  003A96  0E01               	movlw	1
+   332  003A98  6E03               	movwf	TEA_cmd@stat,c
+   333  003A9A  0E05               	movlw	5
+   334  003A9C  ECA0  F01D         	call	_TEA_cmd
+   335                           
+   336                           ;progetto.c: 56: TEA_cmd(0x02,1);
+   337  003AA0  D811               	call	PL10	;call to abstracted procedure
+   338  003AA2  ECA0  F01D         	call	_TEA_cmd
+   339                           
+   340                           ;progetto.c: 57: TEA_cmd(0x06,1);
+   341  003AA6  0E01               	movlw	1
+   342  003AA8  6E03               	movwf	TEA_cmd@stat,c
+   343  003AAA  0E06               	movlw	6
+   344  003AAC  ECA0  F01D         	call	_TEA_cmd
+   345                           
+   346                           ;progetto.c: 58: TEA_cmd(0x08,1);
+   347  003AB0  0E01               	movlw	1
+   348  003AB2  6E03               	movwf	TEA_cmd@stat,c
+   349  003AB4  0E08               	movlw	8
+   350  003AB6  ECA0  F01D         	call	_TEA_cmd
+   351                           
+   352                           ;progetto.c: 59: TEA_cmd(0x09,2);
+   353  003ABA  0E02               	movlw	2
+   354  003ABC  6E03               	movwf	TEA_cmd@stat,c
+   355  003ABE  0E09               	movlw	9
+   356  003AC0  EFA0  F01D         	goto	_TEA_cmd
+   357  003AC4                     __end_of_setup:
+   358                           	opt stack 0
+   359  003AC4                     PL10:
+   360                           	opt stack 26
+   361  003AC4  0E01               	movlw	1
+   362  003AC6  6E03               	movwf	TEA_cmd@stat,c
+   363  003AC8  0C02               	retlw	2
+   364  003ACA                     __end_ofPL10:
+   365                           	opt stack 0
+   366                           tblptru	equ	0xFF8
+   367                           intcon2	equ	0xFF1
+   368                           wreg	equ	0xFE8
+   369                           status	equ	0xFD8
+   370                           
+   371 ;; *************** function _OpenI2C_StSpeed *****************
+   372 ;; Defined at:
+   373 ;;		line 108 in file "C:\Users\Hamza\Desktop\Cassa_Audio\i2c.c"
+   374 ;; Parameters:    Size  Location     Type
+   375 ;;		None
+   376 ;; Auto vars:     Size  Location     Type
+   377 ;;		None
+   378 ;; Return value:  Size  Location     Type
+   379 ;;                  1    wreg      void 
+   380 ;; Registers used:
+   381 ;;		wreg, status,2, status,0
+   382 ;; Tracked objects:
+   383 ;;		On entry : 0/0
+   384 ;;		On exit  : 0/0
+   385 ;;		Unchanged: 0/0
+   386 ;; Data sizes:     COMRAM   BANK0   BANK1   BANK2
+   387 ;;      Params:         0       0       0       0
+   388 ;;      Locals:         0       0       0       0
+   389 ;;      Temps:          0       0       0       0
+   390 ;;      Totals:         0       0       0       0
+   391 ;;Total ram usage:        0 bytes
+   392 ;; Hardware stack levels used:    1
+   393 ;; This function calls:
+   394 ;;		Nothing
+   395 ;; This function is called by:
+   396 ;;		_setup
+   397 ;; This function uses a non-reentrant model
+   398 ;;
+   399                           
+   400                           	psect	text2
+   401  003912                     __ptext2:
+   402                           	opt stack 0
+   403  003912                     _OpenI2C_StSpeed:
+   404                           	opt stack 29
+   405                           
+   406                           ;i2c.c: 110: SSPSTAT &= 0x3F;
+   407                           
+   408                           ;incstack = 0
+   409  003912  0E3F               	movlw	63
+   410  003914  16C7               	andwf	4039,f,c	;volatile
+   411                           
+   412                           ;i2c.c: 111: SSPCON1 = 0x08;
+   413  003916  0E08               	movlw	8
+   414  003918  6EC6               	movwf	4038,c	;volatile
+   415                           
+   416                           ;i2c.c: 112: SSPCON2 = 0x00;
+   417  00391A  6AC5               	clrf	4037,c	;volatile
+   418                           
+   419                           ;i2c.c: 113: SSPSTAT |= 0x80;
+   420  00391C  8EC7               	bsf	4039,7,c	;volatile
+   421                           
+   422                           ;i2c.c: 117: SSPADD=9;
+   423  00391E  0E09               	movlw	9
+   424  003920  6EC8               	movwf	4040,c	;volatile
+   425                           
+   426                           ;i2c.c: 121: SSPADD=19;
+   427  003922  0E13               	movlw	19
+   428  003924  6EC8               	movwf	4040,c	;volatile
+   429                           
+   430                           ;i2c.c: 128: TRISCbits.TRISC3 = 1;
+   431  003926  8694               	bsf	3988,3,c	;volatile
+   432                           
+   433                           ;i2c.c: 129: TRISCbits.TRISC4 = 1;
+   434  003928  8894               	bsf	3988,4,c	;volatile
+   435                           
+   436                           ;i2c.c: 130: SSPCON1 |= 0x20;
+   437  00392A  8AC6               	bsf	4038,5,c	;volatile
+   438  00392C  0C13               	retlw	19	;funcret
+   439  00392E                     __end_of_OpenI2C_StSpeed:
+   440                           	opt stack 0
+   441                           tblptru	equ	0xFF8
+   442                           intcon2	equ	0xFF1
+   443                           wreg	equ	0xFE8
+   444                           status	equ	0xFD8
+   445                           
+   446 ;; *************** function _functionsRoutine *****************
+   447 ;; Defined at:
+   448 ;;		line 68 in file "C:\Users\Hamza\Desktop\Cassa_Audio\progetto.c"
+   449 ;; Parameters:    Size  Location     Type
+   450 ;;		None
+   451 ;; Auto vars:     Size  Location     Type
+   452 ;;		None
+   453 ;; Return value:  Size  Location     Type
+   454 ;;                  1    wreg      void 
+   455 ;; Registers used:
+   456 ;;		wreg, status,2, status,0, cstack
+   457 ;; Tracked objects:
+   458 ;;		On entry : 0/0
+   459 ;;		On exit  : 0/0
+   460 ;;		Unchanged: 0/0
+   461 ;; Data sizes:     COMRAM   BANK0   BANK1   BANK2
+   462 ;;      Params:         0       0       0       0
+   463 ;;      Locals:         0       0       0       0
+   464 ;;      Temps:          1       0       0       0
+   465 ;;      Totals:         1       0       0       0
+   466 ;;Total ram usage:        1 bytes
+   467 ;; Hardware stack levels used:    1
+   468 ;; Hardware stack levels required when called:    4
+   469 ;; This function calls:
+   470 ;;		_TEA_cmd
+   471 ;;		_TEA_setFreq
+   472 ;; This function is called by:
+   473 ;;		_main
+   474 ;; This function uses a non-reentrant model
+   475 ;;
+   476                           
+   477                           	psect	text3
+   478  003BBE                     __ptext3:
+   479                           	opt stack 0
+   480  003BBE                     _functionsRoutine:
+   481                           	opt stack 26
+   482                           
+   483                           ;progetto.c: 69: switch(function){
+   484                           
+   485                           ;incstack = 0
+   486  003BBE  D025               	goto	l1176
+   487  003BC0                     l170:
+   488                           
+   489                           ;progetto.c: 73: status^=1;
+   490  003BC0  721A               	btg	_status/(0+8),_status& (0+7),c
+   491                           
+   492                           ;progetto.c: 74: TEA_cmd(0x07,status);
+   493  003BC2  0E00               	movlw	0
+   494  003BC4  B21A               	btfsc	_status/(0+8),_status& (0+7),c
+   495  003BC6  0E01               	movlw	1
+   496  003BC8  6E03               	movwf	TEA_cmd@stat,c
+   497  003BCA  0E07               	movlw	7
+   498  003BCC  ECA0  F01D         	call	_TEA_cmd
+   499                           
+   500                           ;progetto.c: 75: break;
+   501  003BD0  D027               	goto	l169
+   502  003BD2                     l171:
+   503                           
+   504                           ;progetto.c: 77: if (smode){
+   505  003BD2  A01A               	btfss	_smode/(0+8),_smode& (0+7),c
+   506  003BD4  D005               	goto	l1168
+   507                           
+   508                           ;progetto.c: 78: TEA_setFreq(0);
+   509  003BD6  6A0E               	clrf	TEA_setFreq@freq+1,c
+   510  003BD8  6A0D               	clrf	TEA_setFreq@freq,c
+   511  003BDA  EC2C  F01E         	call	_TEA_setFreq	;wreg free
+   512                           
+   513                           ;progetto.c: 79: }
+   514  003BDE  D020               	goto	l169
+   515  003BE0                     l1168:
+   516                           
+   517                           ;progetto.c: 80: else{
+   518                           ;progetto.c: 81: TEA_setFreq(8830);
+   519  003BE0  0E22               	movlw	34
+   520  003BE2  6E0E               	movwf	TEA_setFreq@freq+1,c
+   521  003BE4  0E7E               	movlw	126
+   522  003BE6  6E0D               	movwf	TEA_setFreq@freq,c
+   523  003BE8  EC2C  F01E         	call	_TEA_setFreq	;wreg free
+   524  003BEC  D019               	goto	l169
+   525  003BEE                     l174:
+   526                           
+   527                           ;progetto.c: 85: smode^=1;
+   528  003BEE  701A               	btg	_smode/(0+8),_smode& (0+7),c
+   529                           
+   530                           ;progetto.c: 86: break;
+   531  003BF0  D017               	goto	l169
+   532  003BF2                     l175:
+   533                           
+   534                           ;progetto.c: 88: if (smode){
+   535  003BF2  A01A               	btfss	_smode/(0+8),_smode& (0+7),c
+   536  003BF4  D006               	goto	l1172
+   537                           
+   538                           ;progetto.c: 89: TEA_setFreq(1);
+   539  003BF6  6A0E               	clrf	TEA_setFreq@freq+1,c
+   540  003BF8  0E01               	movlw	1
+   541  003BFA  6E0D               	movwf	TEA_setFreq@freq,c
+   542  003BFC  EC2C  F01E         	call	_TEA_setFreq	;wreg free
+   543                           
+   544                           ;progetto.c: 90: }
+   545  003C00  D00F               	goto	l169
+   546  003C02                     l1172:
+   547                           
+   548                           ;progetto.c: 91: else{
+   549                           ;progetto.c: 92: TEA_setFreq(10250);
+   550  003C02  D822               	call	PL2	;call to abstracted procedure
+   551  003C04  EC2C  F01E         	call	_TEA_setFreq	;wreg free
+   552  003C08  D00B               	goto	l169
+   553  003C0A                     l1176:
+   554  003C0A  5019               	movf	_function,w,c
+   555                           
+   556                           ; Switch size 1, requested type "space"
+   557                           ; Number of cases is 5, Range of values is 16 to 20
+   558                           ; switch strategies available:
+   559                           ; Name         Instructions Cycles
+   560                           ; simple_byte           16     9 (average)
+   561                           ;	Chosen strategy is simple_byte
+   562  003C0C  0A10               	xorlw	16	; case 16
+   563  003C0E  E008               	bz	l169
+   564  003C10  0A01               	xorlw	1	; case 17
+   565  003C12  E0D6               	bz	l170
+   566  003C14  0A03               	xorlw	3	; case 18
+   567  003C16  E0DD               	bz	l171
+   568  003C18  0A01               	xorlw	1	; case 19
+   569  003C1A  E0E9               	bz	l174
+   570  003C1C  0A07               	xorlw	7	; case 20
+   571  003C1E  E0E9               	bz	l175
+   572  003C20                     l169:
+   573                           
+   574                           ;progetto.c: 97: function=0;
+   575  003C20  6A19               	clrf	_function,c
+   576                           
+   577                           ;progetto.c: 98: _delay(150000);
+   578  003C22  D817               	call	PL4	;call to abstracted procedure
+   579  003C24                     u477:
+   580  003C24  2EE8               	decfsz	wreg,f,c
+   581  003C26  D7FE               	goto	u477
+   582  003C28  2E14               	decfsz	??_functionsRoutine& (0+255),f,c
+   583  003C2A  D7FC               	goto	u477
+   584  003C2C  F000               	nop	
+   585                           
+   586                           ;progetto.c: 99: _delay(150000);
+   587  003C2E  D811               	call	PL4	;call to abstracted procedure
+   588  003C30                     u487:
+   589  003C30  2EE8               	decfsz	wreg,f,c
+   590  003C32  D7FE               	goto	u487
+   591  003C34  2E14               	decfsz	??_functionsRoutine& (0+255),f,c
+   592  003C36  D7FC               	goto	u487
+   593  003C38  F000               	nop	
+   594                           
+   595                           ;progetto.c: 100: _delay(150000);
+   596  003C3A  D80B               	call	PL4	;call to abstracted procedure
+   597  003C3C                     u497:
+   598  003C3C  2EE8               	decfsz	wreg,f,c
+   599  003C3E  D7FE               	goto	u497
+   600  003C40  2E14               	decfsz	??_functionsRoutine& (0+255),f,c
+   601  003C42  D7FC               	goto	u497
+   602  003C44  F000               	nop	
+   603  003C46  0012               	return		;funcret
+   604  003C48                     __end_of_functionsRoutine:
+   605                           	opt stack 0
+   606  003C48                     PL2:
+   607                           	opt stack 26
+   608  003C48  0E28               	movlw	40
+   609  003C4A  6E0E               	movwf	TEA_setFreq@freq+1,c
+   610  003C4C  0E0A               	movlw	10
+   611  003C4E  6E0D               	movwf	TEA_setFreq@freq,c
+   612  003C50  0C0A               	retlw	10
+   613  003C52                     __end_ofPL2:
+   614                           	opt stack 0
+   615  003C52                     PL4:
+   616                           	opt stack 26
+   617  003C52  0EC3               	movlw	195
+   618  003C54  6E14               	movwf	??_functionsRoutine& (0+255),c
+   619  003C56  0CCD               	retlw	205
+   620  003C58                     __end_ofPL4:
+   621                           	opt stack 0
+   622                           tblptru	equ	0xFF8
+   623                           intcon2	equ	0xFF1
+   624                           wreg	equ	0xFE8
+   625                           status	equ	0xFD8
+   626                           
+   627 ;; *************** function _TEA_setFreq *****************
+   628 ;; Defined at:
+   629 ;;		line 64 in file "C:\Users\Hamza\Desktop\Cassa_Audio\TEA5767.c"
+   630 ;; Parameters:    Size  Location     Type
+   631 ;;  freq            2   12[COMRAM] int 
+   632 ;; Auto vars:     Size  Location     Type
+   633 ;;  rawFreq         4   15[COMRAM] unsigned long 
+   634 ;; Return value:  Size  Location     Type
+   635 ;;                  1    wreg      void 
+   636 ;; Registers used:
+   637 ;;		wreg, status,2, status,0, cstack
+   638 ;; Tracked objects:
+   639 ;;		On entry : 0/0
+   640 ;;		On exit  : 0/0
+   641 ;;		Unchanged: 0/0
+   642 ;; Data sizes:     COMRAM   BANK0   BANK1   BANK2
+   643 ;;      Params:         2       0       0       0
+   644 ;;      Locals:         4       0       0       0
+   645 ;;      Temps:          1       0       0       0
+   646 ;;      Totals:         7       0       0       0
+   647 ;;Total ram usage:        7 bytes
+   648 ;; Hardware stack levels used:    1
+   649 ;; Hardware stack levels required when called:    3
+   650 ;; This function calls:
+   651 ;;		_TEA_readData
+   652 ;;		_TEA_writeData
+   653 ;;		___lmul
+   654 ;; This function is called by:
+   655 ;;		_setup
+   656 ;;		_functionsRoutine
+   657 ;; This function uses a non-reentrant model
+   658 ;;
+   659                           
+   660                           	psect	text4
+   661  003C58                     __ptext4:
+   662                           	opt stack 0
+   663  003C58                     _TEA_setFreq:
+   664                           	opt stack 26
+   665                           
+   666                           ;TEA5767.c: 66: if (freq==1){
+   667                           
+   668                           ;incstack = 0
+   669  003C58  040D               	decf	TEA_setFreq@freq,w,c
+   670  003C5A  100E               	iorwf	TEA_setFreq@freq+1,w,c
+   671  003C5C  E106               	bnz	l1120
+   672                           
+   673                           ;TEA5767.c: 67: byte1|=0b01000000;
+   674  003C5E  8C15               	bsf	_byte1,6,c
+   675                           
+   676                           ;TEA5767.c: 68: byte3|=0b10000000;
+   677  003C60  8E17               	bsf	_byte3,7,c
+   678  003C62                     l1118:
+   679                           
+   680                           ;TEA5767.c: 69: TEA_readData();
+   681  003C62  ECF6  F01C         	call	_TEA_readData	;wreg free
+   682                           
+   683                           ;TEA5767.c: 70: }
+   684  003C66  EFAB  F01C         	goto	_TEA_writeData
+   685  003C6A                     l1120:
+   686                           
+   687                           ;TEA5767.c: 71: else if(freq==0){
+   688  003C6A  500D               	movf	TEA_setFreq@freq,w,c
+   689  003C6C  100E               	iorwf	TEA_setFreq@freq+1,w,c
+   690  003C6E  E103               	bnz	l1126
+   691                           
+   692                           ;TEA5767.c: 72: byte1|=0b01000000;
+   693  003C70  8C15               	bsf	_byte1,6,c
+   694                           
+   695                           ;TEA5767.c: 73: byte3&=0b01111111;
+   696  003C72  9E17               	bcf	_byte3,7,c
+   697  003C74  D7F6               	goto	l1118
+   698  003C76                     l1126:
+   699                           
+   700                           ;TEA5767.c: 76: else{
+   701                           ;TEA5767.c: 77: rawFreq=freq;
+   702  003C76  C00D  F010         	movff	TEA_setFreq@freq,TEA_setFreq@rawFreq
+   703  003C7A  C00E  F011         	movff	TEA_setFreq@freq+1,TEA_setFreq@rawFreq+1
+   704  003C7E  0E00               	movlw	0
+   705  003C80  BE11               	btfsc	TEA_setFreq@rawFreq+1,7,c
+   706  003C82  0EFF               	movlw	-1
+   707  003C84  6E12               	movwf	TEA_setFreq@rawFreq+2,c
+   708  003C86  6E13               	movwf	TEA_setFreq@rawFreq+3,c
+   709                           
+   710                           ;TEA5767.c: 78: rawFreq=rawFreq*10000;
+   711  003C88  C010  F001         	movff	TEA_setFreq@rawFreq,___lmul@multiplier
+   712  003C8C  C011  F002         	movff	TEA_setFreq@rawFreq+1,___lmul@multiplier+1
+   713  003C90  C012  F003         	movff	TEA_setFreq@rawFreq+2,___lmul@multiplier+2
+   714  003C94  C013  F004         	movff	TEA_setFreq@rawFreq+3,___lmul@multiplier+3
+   715  003C98  0E10               	movlw	16
+   716  003C9A  6E05               	movwf	___lmul@multiplicand,c
+   717  003C9C  0E27               	movlw	39
+   718  003C9E  6E06               	movwf	___lmul@multiplicand+1,c
+   719  003CA0  6A07               	clrf	___lmul@multiplicand+2,c
+   720  003CA2  6A08               	clrf	___lmul@multiplicand+3,c
+   721  003CA4  ECD0  F01C         	call	___lmul	;wreg free
+   722  003CA8  C001  F010         	movff	?___lmul,TEA_setFreq@rawFreq
+   723  003CAC  C002  F011         	movff	?___lmul+1,TEA_setFreq@rawFreq+1
+   724  003CB0  C003  F012         	movff	?___lmul+2,TEA_setFreq@rawFreq+2
+   725  003CB4  C004  F013         	movff	?___lmul+3,TEA_setFreq@rawFreq+3
+   726                           
+   727                           ;TEA5767.c: 79: rawFreq+=225000;
+   728  003CB8  0EE8               	movlw	232
+   729  003CBA  2610               	addwf	TEA_setFreq@rawFreq,f,c
+   730  003CBC  0E6E               	movlw	110
+   731  003CBE  2211               	addwfc	TEA_setFreq@rawFreq+1,f,c
+   732  003CC0  0E03               	movlw	3
+   733  003CC2  2212               	addwfc	TEA_setFreq@rawFreq+2,f,c
+   734  003CC4  0E00               	movlw	0
+   735  003CC6  2213               	addwfc	TEA_setFreq@rawFreq+3,f,c
+   736                           
+   737                           ;TEA5767.c: 80: rawFreq=rawFreq*4;
+   738  003CC8  0E02               	movlw	2
+   739  003CCA                     u425:
+   740  003CCA  90D8               	bcf	status,0,c
+   741  003CCC  3610               	rlcf	TEA_setFreq@rawFreq,f,c
+   742  003CCE  3611               	rlcf	TEA_setFreq@rawFreq+1,f,c
+   743  003CD0  3612               	rlcf	TEA_setFreq@rawFreq+2,f,c
+   744  003CD2  3613               	rlcf	TEA_setFreq@rawFreq+3,f,c
+   745  003CD4  2EE8               	decfsz	wreg,f,c
+   746  003CD6  D7F9               	goto	u425
+   747                           
+   748                           ;TEA5767.c: 81: rawFreq/=32768;
+   749  003CD8  0E0F               	movlw	15
+   750  003CDA  6E0F               	movwf	??_TEA_setFreq& (0+255),c
+   751  003CDC                     u435:
+   752  003CDC  90D8               	bcf	status,0,c
+   753  003CDE  3213               	rrcf	TEA_setFreq@rawFreq+3,f,c
+   754  003CE0  3212               	rrcf	TEA_setFreq@rawFreq+2,f,c
+   755  003CE2  3211               	rrcf	TEA_setFreq@rawFreq+1,f,c
+   756  003CE4  3210               	rrcf	TEA_setFreq@rawFreq,f,c
+   757  003CE6  2E0F               	decfsz	??_TEA_setFreq& (0+255),f,c
+   758  003CE8  D7F9               	goto	u435
+   759                           
+   760                           ;TEA5767.c: 82: freq=rawFreq;
+   761  003CEA  C010  F00D         	movff	TEA_setFreq@rawFreq,TEA_setFreq@freq
+   762  003CEE  C011  F00E         	movff	TEA_setFreq@rawFreq+1,TEA_setFreq@freq+1
+   763                           
+   764                           ;TEA5767.c: 83: byte1=0;
+   765  003CF2  6A15               	clrf	_byte1,c
+   766                           
+   767                           ;TEA5767.c: 84: byte1=freq>>8;
+   768  003CF4  500E               	movf	TEA_setFreq@freq+1,w,c
+   769  003CF6  6E15               	movwf	_byte1,c
+   770                           
+   771                           ;TEA5767.c: 85: byte2=freq;
+   772  003CF8  C00D  F016         	movff	TEA_setFreq@freq,_byte2
+   773                           
+   774                           ;TEA5767.c: 86: }
+   775                           ;TEA5767.c: 87: TEA_writeData();
+   776  003CFC  EFAB  F01C         	goto	_TEA_writeData	;wreg free
+   777  003D00                     __end_of_TEA_setFreq:
+   778                           	opt stack 0
+   779                           tblptru	equ	0xFF8
+   780                           intcon2	equ	0xFF1
+   781                           wreg	equ	0xFE8
+   782                           status	equ	0xFD8
+   783                           
+   784 ;; *************** function ___lmul *****************
+   785 ;; Defined at:
+   786 ;;		line 15 in file "C:\Program Files (x86)\Microchip\xc8\v1.36\sources\common\Umul32.c"
+   787 ;; Parameters:    Size  Location     Type
+   788 ;;  multiplier      4    0[COMRAM] unsigned long 
+   789 ;;  multiplicand    4    4[COMRAM] unsigned long 
+   790 ;; Auto vars:     Size  Location     Type
+   791 ;;  product         4    8[COMRAM] unsigned long 
+   792 ;; Return value:  Size  Location     Type
+   793 ;;                  4    0[COMRAM] unsigned long 
+   794 ;; Registers used:
+   795 ;;		wreg, status,2, status,0
+   796 ;; Tracked objects:
+   797 ;;		On entry : 0/0
+   798 ;;		On exit  : 0/0
+   799 ;;		Unchanged: 0/0
+   800 ;; Data sizes:     COMRAM   BANK0   BANK1   BANK2
+   801 ;;      Params:         8       0       0       0
+   802 ;;      Locals:         4       0       0       0
+   803 ;;      Temps:          0       0       0       0
+   804 ;;      Totals:        12       0       0       0
+   805 ;;Total ram usage:       12 bytes
+   806 ;; Hardware stack levels used:    1
+   807 ;; This function calls:
+   808 ;;		Nothing
+   809 ;; This function is called by:
+   810 ;;		_TEA_setFreq
+   811 ;; This function uses a non-reentrant model
+   812 ;;
+   813                           
+   814                           	psect	text5
+   815  0039A0                     __ptext5:
+   816                           	opt stack 0
+   817  0039A0                     ___lmul:
+   818                           	opt stack 28
+   819                           
+   820                           ;incstack = 0
+   821  0039A0  6A09               	clrf	___lmul@product,c
+   822  0039A2  6A0A               	clrf	___lmul@product+1,c
+   823  0039A4  6A0B               	clrf	___lmul@product+2,c
+   824  0039A6  6A0C               	clrf	___lmul@product+3,c
+   825  0039A8                     l212:
+   826  0039A8  A001               	btfss	___lmul@multiplier,0,c
+   827  0039AA  D008               	goto	l1070
+   828  0039AC  5005               	movf	___lmul@multiplicand,w,c
+   829  0039AE  2609               	addwf	___lmul@product,f,c
+   830  0039B0  5006               	movf	___lmul@multiplicand+1,w,c
+   831  0039B2  220A               	addwfc	___lmul@product+1,f,c
+   832  0039B4  5007               	movf	___lmul@multiplicand+2,w,c
+   833  0039B6  220B               	addwfc	___lmul@product+2,f,c
+   834  0039B8  5008               	movf	___lmul@multiplicand+3,w,c
+   835  0039BA  220C               	addwfc	___lmul@product+3,f,c
+   836  0039BC                     l1070:
+   837  0039BC  90D8               	bcf	status,0,c
+   838  0039BE  3605               	rlcf	___lmul@multiplicand,f,c
+   839  0039C0  3606               	rlcf	___lmul@multiplicand+1,f,c
+   840  0039C2  3607               	rlcf	___lmul@multiplicand+2,f,c
+   841  0039C4  3608               	rlcf	___lmul@multiplicand+3,f,c
+   842  0039C6  90D8               	bcf	status,0,c
+   843  0039C8  3204               	rrcf	___lmul@multiplier+3,f,c
+   844  0039CA  3203               	rrcf	___lmul@multiplier+2,f,c
+   845  0039CC  3202               	rrcf	___lmul@multiplier+1,f,c
+   846  0039CE  3201               	rrcf	___lmul@multiplier,f,c
+   847  0039D0  5001               	movf	___lmul@multiplier,w,c
+   848  0039D2  1002               	iorwf	___lmul@multiplier+1,w,c
+   849  0039D4  1003               	iorwf	___lmul@multiplier+2,w,c
+   850  0039D6  1004               	iorwf	___lmul@multiplier+3,w,c
+   851  0039D8  E1E7               	bnz	l212
+   852  0039DA  C009  F001         	movff	___lmul@product,?___lmul
+   853  0039DE  C00A  F002         	movff	___lmul@product+1,?___lmul+1
+   854  0039E2  C00B  F003         	movff	___lmul@product+2,?___lmul+2
+   855  0039E6  C00C  F004         	movff	___lmul@product+3,?___lmul+3
+   856  0039EA  0012               	return		;funcret
+   857  0039EC                     __end_of___lmul:
+   858                           	opt stack 0
+   859                           tblptru	equ	0xFF8
+   860                           intcon2	equ	0xFF1
+   861                           wreg	equ	0xFE8
+   862                           status	equ	0xFD8
+   863                           
+   864 ;; *************** function _TEA_readData *****************
+   865 ;; Defined at:
+   866 ;;		line 105 in file "C:\Users\Hamza\Desktop\Cassa_Audio\TEA5767.c"
+   867 ;; Parameters:    Size  Location     Type
+   868 ;;		None
+   869 ;; Auto vars:     Size  Location     Type
+   870 ;;  read2           1    3[COMRAM] unsigned char 
+   871 ;;  read1           1    2[COMRAM] unsigned char 
+   872 ;;  read5           1    0        unsigned char 
+   873 ;;  read4           1    0        unsigned char 
+   874 ;;  read3           1    0        unsigned char 
+   875 ;; Return value:  Size  Location     Type
+   876 ;;                  1    wreg      void 
+   877 ;; Registers used:
+   878 ;;		wreg, status,2, status,0, cstack
+   879 ;; Tracked objects:
+   880 ;;		On entry : 0/0
+   881 ;;		On exit  : 0/0
+   882 ;;		Unchanged: 0/0
+   883 ;; Data sizes:     COMRAM   BANK0   BANK1   BANK2
+   884 ;;      Params:         0       0       0       0
+   885 ;;      Locals:         2       0       0       0
+   886 ;;      Temps:          0       0       0       0
+   887 ;;      Totals:         2       0       0       0
+   888 ;;Total ram usage:        2 bytes
+   889 ;; Hardware stack levels used:    1
+   890 ;; Hardware stack levels required when called:    2
+   891 ;; This function calls:
+   892 ;;		_IdleI2C
+   893 ;;		_ReadI2C
+   894 ;;		_WriteI2C
+   895 ;; This function is called by:
+   896 ;;		_TEA_setFreq
+   897 ;; This function uses a non-reentrant model
+   898 ;;
+   899                           
+   900                           	psect	text6
+   901  0039EC                     __ptext6:
+   902                           	opt stack 0
+   903  0039EC                     _TEA_readData:
+   904                           	opt stack 26
+   905                           
+   906                           ;TEA5767.c: 106: unsigned char read1, read2,read3,read4,read5;
+   907                           ;TEA5767.c: 107: __nop();
+   908                           
+   909                           ;incstack = 0
+   910  0039EC  F000               	nop	
+   911                           
+   912                           ;TEA5767.c: 108: __nop();
+   913  0039EE  F000               	nop	
+   914                           
+   915                           ;TEA5767.c: 109: __nop();
+   916  0039F0  F000               	nop	
+   917                           
+   918                           ;TEA5767.c: 110: IdleI2C();
+   919  0039F2  EC60  F01C         	call	_IdleI2C	;wreg free
+   920                           
+   921                           ;TEA5767.c: 111: SSPCON2bits.SEN=1;while(SSPCON2bits.SEN);
+   922  0039F6  80C5               	bsf	4037,0,c	;volatile
+   923  0039F8                     l125:
+   924  0039F8  B0C5               	btfsc	4037,0,c	;volatile
+   925  0039FA  D7FE               	goto	l125
+   926                           
+   927                           ;TEA5767.c: 112: WriteI2C(0xC1);
+   928  0039FC  0EC1               	movlw	193
+   929  0039FE  EC97  F01C         	call	_WriteI2C
+   930                           
+   931                           ;TEA5767.c: 113: read1=ReadI2C();
+   932  003A02  EC7C  F01C         	call	_ReadI2C	;wreg free
+   933  003A06  6E03               	movwf	TEA_readData@read1,c
+   934                           
+   935                           ;TEA5767.c: 114: SSPCON2bits.ACKDT=0;SSPCON2bits.ACKEN=1;while(SSPCON2bits.ACKEN);
+   936  003A08  9AC5               	bcf	4037,5,c	;volatile
+   937  003A0A  88C5               	bsf	4037,4,c	;volatile
+   938  003A0C                     l128:
+   939  003A0C  B8C5               	btfsc	4037,4,c	;volatile
+   940  003A0E  D7FE               	goto	l128
+   941                           
+   942                           ;TEA5767.c: 115: read2=ReadI2C();
+   943  003A10  EC7C  F01C         	call	_ReadI2C	;wreg free
+   944  003A14  6E04               	movwf	TEA_readData@read2,c
+   945                           
+   946                           ;TEA5767.c: 116: SSPCON2bits.ACKDT=0;SSPCON2bits.ACKEN=1;while(SSPCON2bits.ACKEN);
+   947  003A16  9AC5               	bcf	4037,5,c	;volatile
+   948  003A18  88C5               	bsf	4037,4,c	;volatile
+   949  003A1A                     l131:
+   950  003A1A  B8C5               	btfsc	4037,4,c	;volatile
+   951  003A1C  D7FE               	goto	l131
+   952                           
+   953                           ;TEA5767.c: 117: read3=ReadI2C();
+   954  003A1E  EC7C  F01C         	call	_ReadI2C	;wreg free
+   955                           
+   956                           ;TEA5767.c: 118: SSPCON2bits.ACKDT=0;SSPCON2bits.ACKEN=1;while(SSPCON2bits.ACKEN);
+   957  003A22  9AC5               	bcf	4037,5,c	;volatile
+   958  003A24  88C5               	bsf	4037,4,c	;volatile
+   959  003A26                     l134:
+   960  003A26  B8C5               	btfsc	4037,4,c	;volatile
+   961  003A28  D7FE               	goto	l134
+   962                           
+   963                           ;TEA5767.c: 119: read4=ReadI2C();
+   964  003A2A  EC7C  F01C         	call	_ReadI2C	;wreg free
+   965                           
+   966                           ;TEA5767.c: 120: SSPCON2bits.ACKDT=0;SSPCON2bits.ACKEN=1;while(SSPCON2bits.ACKEN);
+   967  003A2E  9AC5               	bcf	4037,5,c	;volatile
+   968  003A30  88C5               	bsf	4037,4,c	;volatile
+   969  003A32                     l137:
+   970  003A32  B8C5               	btfsc	4037,4,c	;volatile
+   971  003A34  D7FE               	goto	l137
+   972                           
+   973                           ;TEA5767.c: 121: read5=ReadI2C();
+   974  003A36  EC7C  F01C         	call	_ReadI2C	;wreg free
+   975                           
+   976                           ;TEA5767.c: 122: SSPCON2bits.ACKDT=1;SSPCON2bits.ACKEN=1;while(SSPCON2bits.ACKEN);
+   977  003A3A  8AC5               	bsf	4037,5,c	;volatile
+   978  003A3C  88C5               	bsf	4037,4,c	;volatile
+   979  003A3E                     l140:
+   980  003A3E  B8C5               	btfsc	4037,4,c	;volatile
+   981  003A40  D7FE               	goto	l140
+   982                           
+   983                           ;TEA5767.c: 123: SSPCON2bits.PEN=1;while(SSPCON2bits.PEN);
+   984  003A42  84C5               	bsf	4037,2,c	;volatile
+   985  003A44                     l143:
+   986  003A44  B4C5               	btfsc	4037,2,c	;volatile
+   987  003A46  D7FE               	goto	l143
+   988                           
+   989                           ;TEA5767.c: 124: byte1=read1&0b01111111;
+   990  003A48  5003               	movf	TEA_readData@read1,w,c
+   991  003A4A  0B7F               	andlw	127
+   992  003A4C  6E15               	movwf	_byte1,c
+   993                           
+   994                           ;TEA5767.c: 125: byte2=read2+1;
+   995  003A4E  2804               	incf	TEA_readData@read2,w,c
+   996  003A50  6E16               	movwf	_byte2,c
+   997                           
+   998                           ;TEA5767.c: 126: __nop();
+   999  003A52  F000               	nop	
+  1000                           
+  1001                           ;TEA5767.c: 127: __nop();
+  1002  003A54  F000               	nop	
+  1003                           
+  1004                           ;TEA5767.c: 128: __nop();
+  1005  003A56  F000               	nop	
+  1006  003A58  0012               	return		;funcret
+  1007  003A5A                     __end_of_TEA_readData:
+  1008                           	opt stack 0
+  1009                           tblptru	equ	0xFF8
+  1010                           intcon2	equ	0xFF1
+  1011                           wreg	equ	0xFE8
+  1012                           status	equ	0xFD8
+  1013                           
+  1014 ;; *************** function _ReadI2C *****************
+  1015 ;; Defined at:
+  1016 ;;		line 142 in file "C:\Users\Hamza\Desktop\Cassa_Audio\i2c.c"
+  1017 ;; Parameters:    Size  Location     Type
+  1018 ;;		None
+  1019 ;; Auto vars:     Size  Location     Type
+  1020 ;;		None
+  1021 ;; Return value:  Size  Location     Type
+  1022 ;;                  1    wreg      unsigned char 
+  1023 ;; Registers used:
+  1024 ;;		wreg, status,2, status,0
+  1025 ;; Tracked objects:
+  1026 ;;		On entry : 0/0
+  1027 ;;		On exit  : 0/0
+  1028 ;;		Unchanged: 0/0
+  1029 ;; Data sizes:     COMRAM   BANK0   BANK1   BANK2
+  1030 ;;      Params:         0       0       0       0
+  1031 ;;      Locals:         0       0       0       0
+  1032 ;;      Temps:          0       0       0       0
+  1033 ;;      Totals:         0       0       0       0
+  1034 ;;Total ram usage:        0 bytes
+  1035 ;; Hardware stack levels used:    1
+  1036 ;; This function calls:
+  1037 ;;		Nothing
+  1038 ;; This function is called by:
+  1039 ;;		_TEA_readData
+  1040 ;; This function uses a non-reentrant model
+  1041 ;;
+  1042                           
+  1043                           	psect	text7
+  1044  0038F8                     __ptext7:
+  1045                           	opt stack 0
+  1046  0038F8                     _ReadI2C:
+  1047                           	opt stack 27
+  1048                           
+  1049                           ;i2c.c: 144: if( ((SSPCON1&0x0F)==0x08) || ((SSPCON1&0x0F)==0x0B) )
+  1050                           
+  1051                           ;incstack = 0
+  1052  0038F8  50C6               	movf	4038,w,c	;volatile
+  1053  0038FA  0B0F               	andlw	15
+  1054  0038FC  0A08               	xorlw	8
+  1055  0038FE  E004               	bz	l67
+  1056  003900  50C6               	movf	4038,w,c	;volatile
+  1057  003902  0B0F               	andlw	15
+  1058  003904  0A0B               	xorlw	11
+  1059  003906  E101               	bnz	l68
+  1060  003908                     l67:
+  1061                           
+  1062                           ;i2c.c: 145: SSPCON2bits.RCEN = 1;
+  1063  003908  86C5               	bsf	4037,3,c	;volatile
+  1064  00390A                     l68:
+  1065  00390A  A0C7               	btfss	4039,0,c	;volatile
+  1066  00390C  D7FE               	goto	l68
+  1067                           
+  1068                           ;i2c.c: 147: return ( SSPBUF );
+  1069  00390E  50C9               	movf	4041,w,c	;volatile
+  1070  003910  0012               	return		;funcret
+  1071  003912                     __end_of_ReadI2C:
+  1072                           	opt stack 0
+  1073                           tblptru	equ	0xFF8
+  1074                           intcon2	equ	0xFF1
+  1075                           wreg	equ	0xFE8
+  1076                           status	equ	0xFD8
+  1077                           
+  1078 ;; *************** function _TEA_cmd *****************
+  1079 ;; Defined at:
+  1080 ;;		line 33 in file "C:\Users\Hamza\Desktop\Cassa_Audio\TEA5767.c"
+  1081 ;; Parameters:    Size  Location     Type
+  1082 ;;  command         1    wreg     unsigned char 
+  1083 ;;  stat            1    2[COMRAM] unsigned char 
+  1084 ;; Auto vars:     Size  Location     Type
+  1085 ;;  command         1    3[COMRAM] unsigned char 
+  1086 ;; Return value:  Size  Location     Type
+  1087 ;;                  1    wreg      void 
+  1088 ;; Registers used:
+  1089 ;;		wreg, status,2, status,0, cstack
+  1090 ;; Tracked objects:
+  1091 ;;		On entry : 0/0
+  1092 ;;		On exit  : 0/0
+  1093 ;;		Unchanged: 0/0
+  1094 ;; Data sizes:     COMRAM   BANK0   BANK1   BANK2
+  1095 ;;      Params:         1       0       0       0
+  1096 ;;      Locals:         1       0       0       0
+  1097 ;;      Temps:          0       0       0       0
+  1098 ;;      Totals:         2       0       0       0
+  1099 ;;Total ram usage:        2 bytes
+  1100 ;; Hardware stack levels used:    1
+  1101 ;; Hardware stack levels required when called:    3
+  1102 ;; This function calls:
+  1103 ;;		_TEA_writeData
+  1104 ;; This function is called by:
+  1105 ;;		_setup
+  1106 ;;		_functionsRoutine
+  1107 ;; This function uses a non-reentrant model
+  1108 ;;
+  1109                           
+  1110                           	psect	text8
+  1111  003B40                     __ptext8:
+  1112                           	opt stack 0
+  1113  003B40                     _TEA_cmd:
+  1114                           	opt stack 26
+  1115                           
+  1116                           ;incstack = 0
+  1117                           ;TEA_cmd@command stored from wreg
+  1118  003B40  6E04               	movwf	TEA_cmd@command,c
+  1119                           
+  1120                           ;TEA5767.c: 34: switch (command){
+  1121  003B42  D026               	goto	l1108
+  1122  003B44                     l1076:
+  1123                           
+  1124                           ;TEA5767.c: 36: byte3&=0b11101111; byte3|=stat<<4;
+  1125  003B44  9817               	bcf	_byte3,4,c
+  1126  003B46  3803               	swapf	TEA_cmd@stat,w,c
+  1127  003B48  0BF0               	andlw	240
+  1128  003B4A  D01F               	goto	L2
+  1129  003B4C                     l1080:
+  1130                           
+  1131                           ;TEA5767.c: 39: byte3&=0b11110111; byte3|=stat<<3;
+  1132  003B4C  9617               	bcf	_byte3,3,c
+  1133  003B4E  D833               	call	PL8	;call to abstracted procedure
+  1134  003B50  D01C               	goto	L2
+  1135  003B52                     l1084:
+  1136                           
+  1137                           ;TEA5767.c: 42: byte4&=0b11110111; byte4|=stat<<3;
+  1138  003B52  9618               	bcf	_byte4,3,c
+  1139  003B54  D830               	call	PL8	;call to abstracted procedure
+  1140  003B56  D011               	goto	L6
+  1141  003B58                     l1088:
+  1142                           
+  1143                           ;TEA5767.c: 45: byte4&=0b11111011; byte4|=stat<<2;
+  1144  003B58  9418               	bcf	_byte4,2,c
+  1145  003B5A  4403               	rlncf	TEA_cmd@stat,w,c
+  1146  003B5C  46E8               	rlncf	wreg,f,c
+  1147  003B5E  0BFC               	andlw	252
+  1148  003B60  D00C               	goto	L6
+  1149  003B62                     l1092:
+  1150                           
+  1151                           ;TEA5767.c: 48: byte4&=0b11111101; byte4|=stat<<1;
+  1152  003B62  9218               	bcf	_byte4,1,c
+  1153  003B64  5003               	movf	TEA_cmd@stat,w,c
+  1154  003B66  2403               	addwf	TEA_cmd@stat,w,c
+  1155  003B68  D008               	goto	L6
+  1156  003B6A                     l1096:
+  1157                           
+  1158                           ;TEA5767.c: 51: byte4&=0b10111111; byte4|=stat<<6;
+  1159  003B6A  9C18               	bcf	_byte4,6,c
+  1160  003B6C  4003               	rrncf	TEA_cmd@stat,w,c
+  1161  003B6E  42E8               	rrncf	wreg,f,c
+  1162  003B70  0BC0               	andlw	192
+  1163  003B72  D003               	goto	L6
+  1164  003B74                     l1100:
+  1165                           
+  1166                           ;TEA5767.c: 54: byte4&=0b11101111; byte4|=stat<<4;
+  1167  003B74  9818               	bcf	_byte4,4,c
+  1168  003B76  3803               	swapf	TEA_cmd@stat,w,c
+  1169  003B78  0BF0               	andlw	240
+  1170  003B7A                     L6:
+  1171  003B7A  1218               	iorwf	_byte4,f,c
+  1172                           
+  1173                           ;TEA5767.c: 55: break;
+  1174  003B7C  EFAB  F01C         	goto	_TEA_writeData
+  1175  003B80                     l1104:
+  1176                           
+  1177                           ;TEA5767.c: 57: byte3&=0b10011111; byte3|=stat<<5;
+  1178  003B80  0E9F               	movlw	159
+  1179  003B82  1617               	andwf	_byte3,f,c
+  1180  003B84  3803               	swapf	TEA_cmd@stat,w,c
+  1181  003B86  46E8               	rlncf	wreg,f,c
+  1182  003B88  0BE0               	andlw	224
+  1183  003B8A                     L2:
+  1184  003B8A  1217               	iorwf	_byte3,f,c
+  1185                           
+  1186                           ;TEA5767.c: 58: break;
+  1187  003B8C  EFAB  F01C         	goto	_TEA_writeData
+  1188  003B90                     l1108:
+  1189  003B90  5004               	movf	TEA_cmd@command,w,c
+  1190                           
+  1191                           ; Switch size 1, requested type "space"
+  1192                           ; Number of cases is 8, Range of values is 2 to 9
+  1193                           ; switch strategies available:
+  1194                           ; Name         Instructions Cycles
+  1195                           ; simple_byte           25    13 (average)
+  1196                           ;	Chosen strategy is simple_byte
+  1197  003B92  0A02               	xorlw	2	; case 2
+  1198  003B94  E0D7               	bz	l1076
+  1199  003B96  0A01               	xorlw	1	; case 3
+  1200  003B98  E0D9               	bz	l1080
+  1201  003B9A  0A07               	xorlw	7	; case 4
+  1202  003B9C  E0DA               	bz	l1084
+  1203  003B9E  0A01               	xorlw	1	; case 5
+  1204  003BA0  E0DB               	bz	l1088
+  1205  003BA2  0A03               	xorlw	3	; case 6
+  1206  003BA4  E0DE               	bz	l1092
+  1207  003BA6  0A01               	xorlw	1	; case 7
+  1208  003BA8  E0E0               	bz	l1096
+  1209  003BAA  0A0F               	xorlw	15	; case 8
+  1210  003BAC  E0E3               	bz	l1100
+  1211  003BAE  0A01               	xorlw	1	; case 9
+  1212  003BB0  E0E7               	bz	l1104
+  1213                           
+  1214                           ;TEA5767.c: 62: TEA_writeData();
+  1215  003BB2  EFAB  F01C         	goto	_TEA_writeData	;wreg free
+  1216  003BB6                     __end_of_TEA_cmd:
+  1217                           	opt stack 0
+  1218  003BB6                     PL8:
+  1219                           	opt stack 26
+  1220  003BB6  3803               	swapf	TEA_cmd@stat,w,c
+  1221  003BB8  42E8               	rrncf	wreg,f,c
+  1222  003BBA  0BF8               	andlw	248
+  1223  003BBC  0012               	return	
+  1224  003BBE                     __end_ofPL8:
+  1225                           	opt stack 0
+  1226                           tblptru	equ	0xFF8
+  1227                           intcon2	equ	0xFF1
+  1228                           wreg	equ	0xFE8
+  1229                           status	equ	0xFD8
+  1230                           
+  1231 ;; *************** function _TEA_writeData *****************
+  1232 ;; Defined at:
+  1233 ;;		line 89 in file "C:\Users\Hamza\Desktop\Cassa_Audio\TEA5767.c"
+  1234 ;; Parameters:    Size  Location     Type
+  1235 ;;		None
+  1236 ;; Auto vars:     Size  Location     Type
+  1237 ;;		None
+  1238 ;; Return value:  Size  Location     Type
+  1239 ;;                  1    wreg      void 
+  1240 ;; Registers used:
+  1241 ;;		wreg, status,2, status,0, cstack
+  1242 ;; Tracked objects:
+  1243 ;;		On entry : 0/0
+  1244 ;;		On exit  : 0/0
+  1245 ;;		Unchanged: 0/0
+  1246 ;; Data sizes:     COMRAM   BANK0   BANK1   BANK2
+  1247 ;;      Params:         0       0       0       0
+  1248 ;;      Locals:         0       0       0       0
+  1249 ;;      Temps:          0       0       0       0
+  1250 ;;      Totals:         0       0       0       0
+  1251 ;;Total ram usage:        0 bytes
+  1252 ;; Hardware stack levels used:    1
+  1253 ;; Hardware stack levels required when called:    2
+  1254 ;; This function calls:
+  1255 ;;		_IdleI2C
+  1256 ;;		_WriteI2C
+  1257 ;; This function is called by:
+  1258 ;;		_TEA_cmd
+  1259 ;;		_TEA_setFreq
+  1260 ;; This function uses a non-reentrant model
+  1261 ;;
+  1262                           
+  1263                           	psect	text9
+  1264  003956                     __ptext9:
+  1265                           	opt stack 0
+  1266  003956                     _TEA_writeData:
+  1267                           	opt stack 26
+  1268                           
+  1269                           ;TEA5767.c: 90: IdleI2C();
+  1270                           
+  1271                           ;incstack = 0
+  1272  003956  EC60  F01C         	call	_IdleI2C	;wreg free
+  1273                           
+  1274                           ;TEA5767.c: 91: SSPCON2bits.SEN=1;while(SSPCON2bits.SEN);
+  1275  00395A  80C5               	bsf	4037,0,c	;volatile
+  1276  00395C                     l116:
+  1277  00395C  B0C5               	btfsc	4037,0,c	;volatile
+  1278  00395E  D7FE               	goto	l116
+  1279                           
+  1280                           ;TEA5767.c: 92: WriteI2C(0xC0);
+  1281  003960  0EC0               	movlw	192
+  1282  003962  EC97  F01C         	call	_WriteI2C
+  1283                           
+  1284                           ;TEA5767.c: 93: IdleI2C();
+  1285  003966  EC60  F01C         	call	_IdleI2C	;wreg free
+  1286                           
+  1287                           ;TEA5767.c: 94: WriteI2C(byte1);
+  1288  00396A  5015               	movf	_byte1,w,c
+  1289  00396C  EC97  F01C         	call	_WriteI2C
+  1290                           
+  1291                           ;TEA5767.c: 95: IdleI2C();
+  1292  003970  EC60  F01C         	call	_IdleI2C	;wreg free
+  1293                           
+  1294                           ;TEA5767.c: 96: WriteI2C(byte2);
+  1295  003974  5016               	movf	_byte2,w,c
+  1296  003976  EC97  F01C         	call	_WriteI2C
+  1297                           
+  1298                           ;TEA5767.c: 97: IdleI2C();
+  1299  00397A  EC60  F01C         	call	_IdleI2C	;wreg free
+  1300                           
+  1301                           ;TEA5767.c: 98: WriteI2C(byte3);
+  1302  00397E  5017               	movf	_byte3,w,c
+  1303  003980  EC97  F01C         	call	_WriteI2C
+  1304                           
+  1305                           ;TEA5767.c: 99: IdleI2C();
+  1306  003984  EC60  F01C         	call	_IdleI2C	;wreg free
+  1307                           
+  1308                           ;TEA5767.c: 100: WriteI2C(byte4);
+  1309  003988  5018               	movf	_byte4,w,c
+  1310  00398A  EC97  F01C         	call	_WriteI2C
+  1311                           
+  1312                           ;TEA5767.c: 101: IdleI2C();
+  1313  00398E  EC60  F01C         	call	_IdleI2C	;wreg free
+  1314                           
+  1315                           ;TEA5767.c: 102: WriteI2C(0b01000000);
+  1316  003992  0E40               	movlw	64
+  1317  003994  EC97  F01C         	call	_WriteI2C
+  1318                           
+  1319                           ;TEA5767.c: 103: SSPCON2bits.PEN=1;while(SSPCON2bits.PEN);
+  1320  003998  84C5               	bsf	4037,2,c	;volatile
+  1321  00399A                     l119:
+  1322  00399A  A4C5               	btfss	4037,2,c	;volatile
+  1323  00399C  0012               	return		;funcret
+  1324  00399E  D7FD               	goto	l119
+  1325  0039A0                     __end_of_TEA_writeData:
+  1326                           	opt stack 0
+  1327                           tblptru	equ	0xFF8
+  1328                           intcon2	equ	0xFF1
+  1329                           wreg	equ	0xFE8
+  1330                           status	equ	0xFD8
+  1331                           
+  1332 ;; *************** function _WriteI2C *****************
+  1333 ;; Defined at:
+  1334 ;;		line 158 in file "C:\Users\Hamza\Desktop\Cassa_Audio\i2c.c"
+  1335 ;; Parameters:    Size  Location     Type
+  1336 ;;  data_out        1    wreg     unsigned char 
+  1337 ;; Auto vars:     Size  Location     Type
+  1338 ;;  data_out        1    1[COMRAM] unsigned char 
+  1339 ;; Return value:  Size  Location     Type
+  1340 ;;                  1    wreg      unsigned char 
+  1341 ;; Registers used:
+  1342 ;;		wreg, status,2, status,0, cstack
+  1343 ;; Tracked objects:
+  1344 ;;		On entry : 0/0
+  1345 ;;		On exit  : 0/0
+  1346 ;;		Unchanged: 0/0
+  1347 ;; Data sizes:     COMRAM   BANK0   BANK1   BANK2
+  1348 ;;      Params:         0       0       0       0
+  1349 ;;      Locals:         1       0       0       0
+  1350 ;;      Temps:          0       0       0       0
+  1351 ;;      Totals:         1       0       0       0
+  1352 ;;Total ram usage:        1 bytes
+  1353 ;; Hardware stack levels used:    1
+  1354 ;; Hardware stack levels required when called:    1
+  1355 ;; This function calls:
+  1356 ;;		_IdleI2C
+  1357 ;; This function is called by:
+  1358 ;;		_TEA_writeData
+  1359 ;;		_TEA_readData
+  1360 ;; This function uses a non-reentrant model
+  1361 ;;
+  1362                           
+  1363                           	psect	text10
+  1364  00392E                     __ptext10:
+  1365                           	opt stack 0
+  1366  00392E                     _WriteI2C:
+  1367                           	opt stack 26
+  1368                           
+  1369                           ;incstack = 0
+  1370                           ;WriteI2C@data_out stored from wreg
+  1371  00392E  6E02               	movwf	WriteI2C@data_out,c
+  1372                           
+  1373                           ;i2c.c: 160: SSPBUF = data_out;
+  1374  003930  C002  FFC9         	movff	WriteI2C@data_out,4041	;volatile
+  1375                           
+  1376                           ;i2c.c: 161: if ( SSPCON1bits.WCOL )
+  1377  003934  BEC6               	btfsc	4038,7,c	;volatile
+  1378  003936  0012               	return	
+  1379                           
+  1380                           ;i2c.c: 163: else
+  1381                           ;i2c.c: 164: {
+  1382                           ;i2c.c: 165: if( ((SSPCON1&0x0F)==0x08) || ((SSPCON1&0x0F)==0x0B) )
+  1383  003938  50C6               	movf	4038,w,c	;volatile
+  1384  00393A  0B0F               	andlw	15
+  1385  00393C  0A08               	xorlw	8
+  1386  00393E  E005               	bz	l80
+  1387  003940  50C6               	movf	4038,w,c	;volatile
+  1388  003942  0B0F               	andlw	15
+  1389  003944  0A0B               	xorlw	11
+  1390  003946  A4D8               	btfss	status,2,c
+  1391  003948  0012               	return	
+  1392  00394A                     l80:
+  1393  00394A  B0C7               	btfsc	4039,0,c	;volatile
+  1394  00394C  D7FE               	goto	l80
+  1395                           
+  1396                           ;i2c.c: 168: IdleI2C();
+  1397  00394E  EC60  F01C         	call	_IdleI2C	;wreg free
+  1398                           
+  1399                           ;i2c.c: 169: if ( SSPCON2bits.ACKSTAT )
+  1400  003952  50C5               	movf	4037,w,c	;volatile
+  1401  003954  0012               	return		;funcret
+  1402  003956                     __end_of_WriteI2C:
+  1403                           	opt stack 0
+  1404                           tblptru	equ	0xFF8
+  1405                           intcon2	equ	0xFF1
+  1406                           wreg	equ	0xFE8
+  1407                           status	equ	0xFD8
+  1408                           
+  1409 ;; *************** function _IdleI2C *****************
+  1410 ;; Defined at:
+  1411 ;;		line 65 in file "C:\Users\Hamza\Desktop\Cassa_Audio\i2c.c"
+  1412 ;; Parameters:    Size  Location     Type
+  1413 ;;		None
+  1414 ;; Auto vars:     Size  Location     Type
+  1415 ;;		None
+  1416 ;; Return value:  Size  Location     Type
+  1417 ;;                  1    wreg      void 
+  1418 ;; Registers used:
+  1419 ;;		wreg, status,2, status,0
+  1420 ;; Tracked objects:
+  1421 ;;		On entry : 0/0
+  1422 ;;		On exit  : 0/0
+  1423 ;;		Unchanged: 0/0
+  1424 ;; Data sizes:     COMRAM   BANK0   BANK1   BANK2
+  1425 ;;      Params:         0       0       0       0
+  1426 ;;      Locals:         0       0       0       0
+  1427 ;;      Temps:          1       0       0       0
+  1428 ;;      Totals:         1       0       0       0
+  1429 ;;Total ram usage:        1 bytes
+  1430 ;; Hardware stack levels used:    1
+  1431 ;; This function calls:
+  1432 ;;		Nothing
+  1433 ;; This function is called by:
+  1434 ;;		_WriteI2C
+  1435 ;;		_TEA_writeData
+  1436 ;;		_TEA_readData
+  1437 ;; This function uses a non-reentrant model
+  1438 ;;
+  1439                           
+  1440                           	psect	text11
+  1441  0038C0                     __ptext11:
+  1442                           	opt stack 0
+  1443  0038C0                     _IdleI2C:
+  1444                           	opt stack 26
+  1445  0038C0                     l800:
+  1446  0038C0  CFC5 F001          	movff	4037,??_IdleI2C	;volatile
+  1447  0038C4  0E1F               	movlw	31
+  1448  0038C6  1601               	andwf	??_IdleI2C,f,c
+  1449  0038C8  E1FB               	bnz	l800
+  1450  0038CA  A4C7               	btfss	4039,2,c	;volatile
+  1451  0038CC  0C1F               	retlw	31	;funcret
+  1452  0038CE  D7F8               	goto	l800
+  1453  0038D0                     __end_of_IdleI2C:
+  1454                           	opt stack 0
+  1455                           tblptru	equ	0xFF8
+  1456                           intcon2	equ	0xFF1
+  1457                           wreg	equ	0xFE8
+  1458                           status	equ	0xFD8
+  1459                           
+  1460 ;; *************** function _detectButton *****************
+  1461 ;; Defined at:
+  1462 ;;		line 109 in file "C:\Users\Hamza\Desktop\Cassa_Audio\progetto.c"
+  1463 ;; Parameters:    Size  Location     Type
+  1464 ;;		None
+  1465 ;; Auto vars:     Size  Location     Type
+  1466 ;;  q               1    1[COMRAM] unsigned char 
+  1467 ;; Return value:  Size  Location     Type
+  1468 ;;                  1    wreg      unsigned char 
+  1469 ;; Registers used:
+  1470 ;;		wreg, status,2, status,0
+  1471 ;; Tracked objects:
+  1472 ;;		On entry : 0/0
+  1473 ;;		On exit  : 0/0
+  1474 ;;		Unchanged: 0/0
+  1475 ;; Data sizes:     COMRAM   BANK0   BANK1   BANK2
+  1476 ;;      Params:         0       0       0       0
+  1477 ;;      Locals:         1       0       0       0
+  1478 ;;      Temps:          1       0       0       0
+  1479 ;;      Totals:         2       0       0       0
+  1480 ;;Total ram usage:        2 bytes
+  1481 ;; Hardware stack levels used:    1
+  1482 ;; This function calls:
+  1483 ;;		Nothing
+  1484 ;; This function is called by:
+  1485 ;;		_main
+  1486 ;; This function uses a non-reentrant model
+  1487 ;;
+  1488                           
+  1489                           	psect	text12
+  1490  003ACA                     __ptext12:
+  1491                           	opt stack 0
+  1492  003ACA                     _detectButton:
+  1493                           	opt stack 30
+  1494                           
+  1495                           ;progetto.c: 110: char q;
+  1496                           ;progetto.c: 111: if (!RB0 || !RB1){
+  1497                           
+  1498                           ;incstack = 0
+  1499  003ACA  A081               	btfss	3969,0,c	;volatile
+  1500  003ACC  D002               	goto	l1002
+  1501  003ACE  B281               	btfsc	3969,1,c	;volatile
+  1502  003AD0  D031               	goto	l193
+  1503  003AD2                     l1002:
+  1504                           
+  1505                           ;progetto.c: 112: _delay(100000);
+  1506  003AD2  0E82               	movlw	130
+  1507  003AD4  6E01               	movwf	??_detectButton& (0+255),c
+  1508  003AD6  0EDE               	movlw	222
+  1509  003AD8                     u507:
+  1510  003AD8  2EE8               	decfsz	wreg,f,c
+  1511  003ADA  D7FE               	goto	u507
+  1512  003ADC  2E01               	decfsz	??_detectButton& (0+255),f,c
+  1513  003ADE  D7FC               	goto	u507
+  1514                           
+  1515                           ;progetto.c: 113: if(!RB0&&!RB1){
+  1516  003AE0  A081               	btfss	3969,0,c	;volatile
+  1517  003AE2  B281               	btfsc	3969,1,c	;volatile
+  1518  003AE4  D002               	goto	l185
+  1519                           
+  1520                           ;progetto.c: 114: function=0x10;
+  1521  003AE6  0E10               	movlw	16
+  1522  003AE8  D023               	goto	L10
+  1523  003AEA                     l185:
+  1524                           
+  1525                           ;progetto.c: 116: else if (!RB0){
+  1526  003AEA  B081               	btfsc	3969,0,c	;volatile
+  1527  003AEC  D011               	goto	l187
+  1528                           
+  1529                           ;progetto.c: 117: for(q=0;q<4;q++) _delay(150000);
+  1530  003AEE  6A02               	clrf	detectButton@q,c
+  1531  003AF0                     l1016:
+  1532  003AF0  D824               	call	PL6	;call to abstracted procedure
+  1533  003AF2                     u517:
+  1534  003AF2  2EE8               	decfsz	wreg,f,c
+  1535  003AF4  D7FE               	goto	u517
+  1536  003AF6  2E01               	decfsz	??_detectButton& (0+255),f,c
+  1537  003AF8  D7FC               	goto	u517
+  1538  003AFA  F000               	nop	
+  1539  003AFC  2A02               	incf	detectButton@q,f,c
+  1540  003AFE  0E03               	movlw	3
+  1541  003B00  6402               	cpfsgt	detectButton@q,c
+  1542  003B02  D7F6               	goto	l1016
+  1543                           
+  1544                           ;progetto.c: 118: if(!RB0){
+  1545  003B04  B081               	btfsc	3969,0,c	;volatile
+  1546  003B06  D002               	goto	l1022
+  1547                           
+  1548                           ;progetto.c: 119: function=0x11;
+  1549  003B08  0E11               	movlw	17
+  1550  003B0A  D012               	goto	L10
+  1551  003B0C                     l1022:
+  1552                           
+  1553                           ;progetto.c: 121: else{
+  1554                           ;progetto.c: 122: function=0x12;
+  1555  003B0C  0E12               	movlw	18
+  1556  003B0E  D010               	goto	L10
+  1557  003B10                     l187:
+  1558                           
+  1559                           ;progetto.c: 125: else if (!RB1){
+  1560  003B10  B281               	btfsc	3969,1,c	;volatile
+  1561  003B12  D010               	goto	l193
+  1562                           
+  1563                           ;progetto.c: 126: for(q=0;q<4;q++) _delay(150000);
+  1564  003B14  6A02               	clrf	detectButton@q,c
+  1565  003B16                     l1030:
+  1566  003B16  D811               	call	PL6	;call to abstracted procedure
+  1567  003B18                     u527:
+  1568  003B18  2EE8               	decfsz	wreg,f,c
+  1569  003B1A  D7FE               	goto	u527
+  1570  003B1C  2E01               	decfsz	??_detectButton& (0+255),f,c
+  1571  003B1E  D7FC               	goto	u527
+  1572  003B20  F000               	nop	
+  1573  003B22  2A02               	incf	detectButton@q,f,c
+  1574  003B24  0E03               	movlw	3
+  1575  003B26  6402               	cpfsgt	detectButton@q,c
+  1576  003B28  D7F6               	goto	l1030
+  1577                           
+  1578                           ;progetto.c: 128: function=0x13;
+  1579  003B2A  0E13               	movlw	19
+  1580                           
+  1581                           ;progetto.c: 127: if(!RB1){
+  1582  003B2C  B281               	btfsc	3969,1,c	;volatile
+  1583                           
+  1584                           ;progetto.c: 130: else{
+  1585                           ;progetto.c: 131: function=0x14;
+  1586  003B2E  0E14               	movlw	20
+  1587  003B30                     L10:
+  1588  003B30  6E19               	movwf	_function,c
+  1589  003B32  D001               	goto	l1038
+  1590  003B34                     l193:
+  1591                           
+  1592                           ;progetto.c: 134: else{
+  1593                           ;progetto.c: 135: function=0;
+  1594  003B34  6A19               	clrf	_function,c
+  1595  003B36                     l1038:
+  1596                           
+  1597                           ;progetto.c: 140: }
+  1598                           ;progetto.c: 141: return function;
+  1599  003B36  5019               	movf	_function,w,c
+  1600  003B38  0012               	return		;funcret
+  1601  003B3A                     __end_of_detectButton:
+  1602                           	opt stack 0
+  1603  003B3A                     PL6:
+  1604                           	opt stack 30
+  1605  003B3A  0EC3               	movlw	195
+  1606  003B3C  6E01               	movwf	??_detectButton& (0+255),c
+  1607  003B3E  0CCD               	retlw	205
+  1608  003B40                     __end_ofPL6:
+  1609                           	opt stack 0
+  1610                           tblptru	equ	0xFF8
+  1611                           intcon2	equ	0xFF1
+  1612                           wreg	equ	0xFE8
+  1613                           status	equ	0xFD8
+  1614                           tblptru	equ	0xFF8
+  1615                           intcon2	equ	0xFF1
+  1616                           wreg	equ	0xFE8
+  1617                           status	equ	0xFD8
+  1618                           
+  1619                           	psect	rparam
+  1620  0000                     tblptru	equ	0xFF8
+  1621                           intcon2	equ	0xFF1
+  1622                           wreg	equ	0xFE8
+  1623                           status	equ	0xFD8
+  1624                           tblptru	equ	0xFF8
+  1625                           intcon2	equ	0xFF1
+  1626                           wreg	equ	0xFE8
+  1627                           status	equ	0xFD8
+
+
+Data Sizes:
+    Strings     0
+    Constant    0
+    Data        0
+    BSS         5
+    Persistent  0
+    Stack       0
+
+Auto Spaces:
+    Space          Size  Autos    Used
+    COMRAM          127     20      26
+    BANK0           128      0       0
+    BANK1           256      0       0
+    BANK2           239      0       0
+
+Pointer List with Targets:
+
+    None.
+
+Critical Paths under _main in COMRAM
+
+    _main->_functionsRoutine
+    _setup->_TEA_setFreq
+    _functionsRoutine->_TEA_setFreq
+    _TEA_setFreq->___lmul
+    _TEA_readData->_WriteI2C
+    _TEA_writeData->_WriteI2C
+    _WriteI2C->_IdleI2C
+
+Critical Paths under _main in BANK0
+
+    None.
+
+Critical Paths under _main in BANK1
+
+    None.
+
+Critical Paths under _main in BANK2
+
+    None.
+
+Call Graph Tables:
+
+ ---------------------------------------------------------------------------------
+ (Depth) Function   	        Calls       Base Space   Used Autos Params    Refs
+ ---------------------------------------------------------------------------------
+ (0) _main                                                 0     0      0    2608
+                       _detectButton
+                   _functionsRoutine
+                              _setup
+ ---------------------------------------------------------------------------------
+ (1) _setup                                                0     0      0    1274
+                    _OpenI2C_StSpeed
+                            _TEA_cmd
+                        _TEA_setFreq
+ ---------------------------------------------------------------------------------
+ (2) _OpenI2C_StSpeed                                      0     0      0       0
+ ---------------------------------------------------------------------------------
+ (1) _functionsRoutine                                     1     1      0    1274
+                                             19 COMRAM     1     1      0
+                            _TEA_cmd
+                        _TEA_setFreq
+ ---------------------------------------------------------------------------------
+ (2) _TEA_setFreq                                          7     5      2     674
+                                             12 COMRAM     7     5      2
+                       _TEA_readData
+                      _TEA_writeData
+                             ___lmul
+ ---------------------------------------------------------------------------------
+ (3) ___lmul                                              12     4      8     238
+                                              0 COMRAM    12     4      8
+ ---------------------------------------------------------------------------------
+ (3) _TEA_readData                                         5     5      0      45
+                                              2 COMRAM     2     2      0
+                            _IdleI2C
+                            _ReadI2C
+                           _WriteI2C
+ ---------------------------------------------------------------------------------
+ (4) _ReadI2C                                              0     0      0       0
+ ---------------------------------------------------------------------------------
+ (2) _TEA_cmd                                              2     1      1     600
+                                              2 COMRAM     2     1      1
+                      _TEA_writeData
+ ---------------------------------------------------------------------------------
+ (3) _TEA_writeData                                        0     0      0      15
+                            _IdleI2C
+                           _WriteI2C
+ ---------------------------------------------------------------------------------
+ (4) _WriteI2C                                             1     1      0      15
+                                              1 COMRAM     1     1      0
+                            _IdleI2C
+ ---------------------------------------------------------------------------------
+ (5) _IdleI2C                                              1     1      0       0
+                                              0 COMRAM     1     1      0
+ ---------------------------------------------------------------------------------
+ (1) _detectButton                                         2     2      0      60
+                                              0 COMRAM     2     2      0
+ ---------------------------------------------------------------------------------
+ Estimated maximum stack depth 5
+ ---------------------------------------------------------------------------------
+
+ Call Graph Graphs:
+
+ _main (ROOT)
+   _detectButton
+   _functionsRoutine
+     _TEA_cmd
+       _TEA_writeData
+         _IdleI2C
+         _WriteI2C
+           _IdleI2C
+     _TEA_setFreq
+       _TEA_readData
+         _IdleI2C
+         _ReadI2C
+         _WriteI2C
+           _IdleI2C
+       _TEA_writeData
+         _IdleI2C
+         _WriteI2C
+           _IdleI2C
+       ___lmul
+   _setup
+     _OpenI2C_StSpeed
+     _TEA_cmd
+       _TEA_writeData
+         _IdleI2C
+         _WriteI2C
+           _IdleI2C
+     _TEA_setFreq
+       _TEA_readData
+         _IdleI2C
+         _ReadI2C
+         _WriteI2C
+           _IdleI2C
+       _TEA_writeData
+         _IdleI2C
+         _WriteI2C
+           _IdleI2C
+       ___lmul
+
+ Address spaces:
+Name               Size   Autos  Total    Cost      Usage
+BIGRAM             2EE      0       0      10        0.0%
+EEDATA             100      0       0       0        0.0%
+BITBANK1           100      0       0       6        0.0%
+BANK1              100      0       0       7        0.0%
+BITBANK2            EF      0       0       8        0.0%
+BANK2               EF      0       0       9        0.0%
+BITBANK0            80      0       0       3        0.0%
+BANK0               80      0       0       4        0.0%
+BITCOMRAM           7F      0       1       0        0.8%
+COMRAM              7F     14      1A       1       20.5%
+BITSFR_5             0      0       0      40        0.0%
+SFR_5                0      0       0      40        0.0%
+BITSFR_4             0      0       0      40        0.0%
+SFR_4                0      0       0      40        0.0%
+BITSFR_3             0      0       0      40        0.0%
+SFR_3                0      0       0      40        0.0%
+BITSFR_2             0      0       0      40        0.0%
+SFR_2                0      0       0      40        0.0%
+BITSFR_1             0      0       0      40        0.0%
+SFR_1                0      0       0      40        0.0%
+BITSFR               0      0       0      40        0.0%
+SFR                  0      0       0      40        0.0%
+STACK                0      0       0       2        0.0%
+NULL                 0      0       0       0        0.0%
+ABS                  0      0      1A       5        0.0%
+DATA                 0      0      1A      11        0.0%
+CODE                 0      0       0       0        0.0%
+
+
+Microchip Technology PIC18 Macro Assembler V1.36 build -262312587 
+Symbol Table                                                                                   Wed Mar 09 09:52:50 2016
+
+                       PL2 3C48                         PL4 3C52                         PL6 3B3A  
+                       PL8 3BB6                _SSPSTATbits 000FC7                         l80 394A  
+                       l67 3908                         l68 390A           _functionsRoutine 3BBE  
+                      PL10 3AC4                        l131 3A1A                        l116 395C  
+                      l140 3A3E                        l212 39A8                        l125 39F8  
+                      l134 3A26                        l119 399A                        l143 3A44  
+                      l128 3A0C                        l137 3A32                        l170 3BC0  
+                      l171 3BD2                        l174 3BEE                        l175 3BF2  
+                      l185 3AEA                        l193 3B34                        l169 3C20  
+                      l187 3B10                        l800 38C0                        _RB0 007C08  
+                      _RB1 007C09                        _RB2 007C0A                        _RB3 007C0B  
+                      u425 3CCA                        u507 3AD8                        u435 3CDC  
+                      u517 3AF2                        u527 3B18                        u477 3C24  
+                      u487 3C30                        u497 3C3C                        wreg 000FE8  
+             __CFG_LVP$OFF 000000               __CFG_WDT$OFF 000000                       l1002 3AD2  
+                     l1100 3B74                       l1030 3B16                       l1022 3B0C  
+                     l1016 3AF0                       l1104 3B80                       l1120 3C6A  
+                     l1108 3B90                       l1038 3B36                       l1070 39BC  
+                     l1126 3C76                       l1118 3C62                       l1080 3B4C  
+                     l1092 3B62                       l1084 3B52                       l1076 3B44  
+                     l1172 3C02                       l1182 38D4                       l1096 3B6A  
+                     l1088 3B58                       l1168 3BE0                       l1176 3C0A  
+                     _LATB 000F8A              __CFG_DEBUG$ON 000000    __end_of_OpenI2C_StSpeed 392E  
+                     _RBPU 007F8F               __CFG_PWRT$ON 000000            __end_of_TEA_cmd 3BB6  
+                     _main 38D0                       start 0002            __end_of_IdleI2C 38D0  
+            __CFG_MCLRE$ON 000000         TEA_setFreq@rawFreq 0010               ___param_bank 000010  
+          __end_of_ReadI2C 3912                      ?_main 0001             TEA_cmd@command 0004  
+                    _TRISB 000F93        ___lmul@multiplicand 0005                      _byte1 0015  
+                    _byte2 0016                      _byte3 0017                      _byte4 0018  
+                    _smode 00D0                      _setup 3A5A             __pbitbssCOMRAM 00D0  
+           __CFG_BOREN$OFF 000000                      status 000FD8       __end_of_detectButton 3B3A  
+          __initialization 38E2               __end_of_main 38E2                     ??_main 0015  
+            __activetblptr 000002                  ??_TEA_cmd 0004                     _ADCON1 000FC1  
+                   ?_setup 0001           __end_of_WriteI2C 3956           ?_OpenI2C_StSpeed 0001  
+                ??_IdleI2C 0001                     _OSCCON 000FD3                     _SSPADD 000FC8  
+                   _SSPBUF 000FC9                  ??_ReadI2C 0001               ?_TEA_setFreq 000D  
+                   ___lmul 39A0                     _status 00D1                     tblptru 000FF8  
+               __accesstop 0080    __end_of__initialization 38EE   __end_of_functionsRoutine 3C48  
+          __CFG_PBADEN$OFF 000000              ___rparam_used 000001             __pcstackCOMRAM 0001  
+            __end_of_setup 3AC4                 __end_ofPL2 3C52                 __end_ofPL4 3C58  
+               __end_ofPL6 3B40                 __end_ofPL8 3BBE      __end_of_TEA_writeData 39A0  
+          __CFG_OSC$INTIO7 000000                    ??_setup 0014      __size_of_detectButton 0070  
+                  ?___lmul 0001             ___lmul@product 0009                  ?_WriteI2C 0001  
+             _detectButton 3ACA                    _TEA_cmd 3B40                    _SSPCON1 000FC6  
+                  _SSPCON2 000FC5          TEA_readData@read1 0003          TEA_readData@read2 0004  
+                  _SSPSTAT 000FC7              ?_TEA_readData 0001                    _IdleI2C 38C0  
+              TEA_cmd@stat 0003                    _ReadI2C 38F8                    __Hparam 0000  
+                  __Lparam 0000       __size_of_TEA_setFreq 00A8            __size_of___lmul 004C  
+                  __pcinit 38E2                 ??_WriteI2C 0002                    __ramtop 0300  
+                  __ptext0 38D0                    __ptext1 3A5A                    __ptext2 3912  
+                  __ptext3 3BBE                    __ptext4 3C58                    __ptext5 39A0  
+                  __ptext6 39EC                    __ptext7 38F8                    __ptext8 3B40  
+                  __ptext9 3956             ??_TEA_readData 0003       end_of_initialization 38EE  
+            __Lmediumconst 0000                  _TRISCbits 000F94          ?_functionsRoutine 0001  
+       ??_functionsRoutine 0014   __size_of_OpenI2C_StSpeed 001C             __end_of___lmul 39EC  
+              __end_ofPL10 3ACA        start_initialization 38E2           WriteI2C@data_out 0002  
+                 ??___lmul 0009       __end_of_TEA_readData 3A5A          __size_of_WriteI2C 0028  
+              __pbssCOMRAM 0015                   ?_TEA_cmd 0003                   ?_IdleI2C 0001  
+                 ?_ReadI2C 0001     __size_of_TEA_writeData 004A          ??_OpenI2C_StSpeed 0001  
+           __size_of_setup 006A              ??_TEA_setFreq 000F              detectButton@q 0002  
+          TEA_setFreq@freq 000D              _TEA_writeData 3956           __size_of_TEA_cmd 0076  
+        ___lmul@multiplier 0001           __size_of_IdleI2C 0010           __size_of_ReadI2C 001A  
+    __size_of_TEA_readData 006E                   __Hrparam 0000                   __Lrparam 0000  
+      __end_of_TEA_setFreq 3D00                   _WriteI2C 392E  __size_of_functionsRoutine 008A  
+           ?_TEA_writeData 0001                   __ptext10 392E                   __ptext11 38C0  
+                 __ptext12 3ACA               _TEA_readData 39EC              __size_of_main 0012  
+                 _function 0019              ?_detectButton 0001                _TEA_setFreq 3C58  
+          _OpenI2C_StSpeed 3912            ??_TEA_writeData 0003             ??_detectButton 0001  
+              _SSPCON1bits 000FC6                _SSPCON2bits 000FC5  
